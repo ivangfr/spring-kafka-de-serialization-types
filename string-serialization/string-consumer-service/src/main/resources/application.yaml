@@ -1,0 +1,12 @@
+server.port: 9081
+
+spring:
+  application:
+    name: string-consumer-service
+
+kafka:
+  bootstrap-servers: localhost:29092
+  consumer:
+    group-id: string-consumer-service-group
+    topic: string-serialization-news
+    auto-offset-reset: earliest

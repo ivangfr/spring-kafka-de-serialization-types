@@ -1,0 +1,11 @@
+server.port: 9080
+
+spring:
+  application:
+    name: json-producer-service
+
+kafka:
+  bootstrap-servers: localhost:29092
+  producer:
+    topic: json-serialization-news
+    num-partitions: 4
