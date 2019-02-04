@@ -4,6 +4,8 @@ spring:
   application:
     name: json-producer-service
 
+simulation.sleep: 3000
+
 kafka:
   bootstrap-servers: localhost:29092
   producer:

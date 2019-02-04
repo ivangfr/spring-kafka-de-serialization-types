@@ -30,16 +30,3 @@ docker-compose ps
 ### avro-serialization
 
 ### avro-with-schema-registry-serialization
-
-- Post own news
-```
-curl -X POST http://localhost:9080/api/send/news \
-  -H "Content-Type: application/json" \
-  -d '{"fromId": 1, "fromName": "New York Times", "title": "Scolari wins Brazilian championship with Palmeiras"}'
-```
-
-- Post randomly
-```
-curl -X POST http://localhost:9080/api/send/news/randomly
-```
-
