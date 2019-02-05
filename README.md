@@ -29,4 +29,4 @@ docker-compose ps
 
 ### avro-serialization
 
-### avro-with-schema-registry-serialization
+### avro-2-serialization

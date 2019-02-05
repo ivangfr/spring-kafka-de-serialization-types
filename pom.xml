@@ -20,6 +20,10 @@
         <module>string-serialization/string-consumer-service</module>
         <module>json-serialization/json-producer-service</module>
         <module>json-serialization/json-consumer-service</module>
+        <module>avro-serialization/avro-producer-service</module>
+        <module>avro-serialization/avro-consumer-service</module>
+        <module>avro-2-serialization/avro-2-producer-service</module>
+        <module>avro-2-serialization/avro-2-consumer-service</module>
     </modules>
 
     <properties>

@@ -1,0 +1,13 @@
+server.port: 9080
+
+spring:
+  application:
+    name: avro-producer-service
+
+simulation.sleep: 3000
+
+kafka:
+  bootstrap-servers: localhost:29092
+  producer:
+    topic: avro-serialization-news
+    num-partitions: 4

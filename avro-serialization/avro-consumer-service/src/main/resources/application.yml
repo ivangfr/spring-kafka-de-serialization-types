@@ -1,0 +1,12 @@
+server.port: 9081
+
+spring:
+  application:
+    name: avro-consumer-service
+
+kafka:
+  bootstrap-servers: localhost:29092
+  consumer:
+    group-id: avro-consumer-service-group
+    auto-offset-reset: earliest
+    topic: avro-serialization-news
