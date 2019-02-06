@@ -1,0 +1,11 @@
+{
+  "namespace": "com.mycompany.avro3producerservice.avro",
+  "type": "record",
+  "name": "NewsMessage",
+  "fields": [
+    {"name": "id", "type": "string"},
+    {"name": "fromId", "type": "int"},
+    {"name": "fromName",  "type": "string"},
+    {"name": "title",  "type": "string"}
+  ]
+}

@@ -30,3 +30,7 @@ docker-compose ps
 ### avro-serialization
 
 ### avro-2-serialization
+
+## TODO
+
+- Rename all `KafkaProducer` to `NewsProducer` and `KafkaProducerConfig` to `NewsProducerConfig`.

@@ -24,6 +24,8 @@
         <module>avro-serialization/avro-consumer-service</module>
         <module>avro-2-serialization/avro-2-producer-service</module>
         <module>avro-2-serialization/avro-2-consumer-service</module>
+        <module>avro-3-serialization/avro-3-producer-service</module>
+        <module>avro-3-serialization/avro-3-consumer-service</module>
     </modules>
 
     <properties>
