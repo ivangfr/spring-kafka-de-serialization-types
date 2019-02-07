@@ -2,7 +2,11 @@
 
 ## Goal
 
-The goal of this project is ...
+The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io/spring-kafka/reference/htmlsingle/).
+We've implemented 5 examples of producer and consumer services that exchanges messages through [`Kafka`](https://kafka.apache.org/)
+using different types of serialization and approaches.
+
+## Start Environment
 
 ### Docker Compose
 
@@ -23,14 +27,25 @@ docker-compose up -d
 docker-compose ps
 ```
 
-### string-serialization
+## Samples
 
-### json-serialization
+The following samples demonstrate a **producer** that pushes _"News"_ messages to a topic in Kafka and a **consumer**
+that listens those messages from Kafka.
 
-### avro-serialization
+![project-diagram-samples](images/project-diagram-samples.png)
 
-### avro-2-serialization
+### [# string-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/string-serialization)
 
-## TODO
+### [# json-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/json-serialization)
 
-- Rename all `KafkaProducer` to `NewsProducer` and `KafkaProducerConfig` to `NewsProducerConfig`.
+### [# avro-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-serialization)
+
+### [# avro-2-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-2-serialization)
+
+### [# avro-3-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-3-serialization)
+
+## References
+
+- https://codenotfound.com/spring-kafka-consumer-producer-example.html
+- https://codenotfound.com/spring-kafka-json-serializer-deserializer-example.html
+- https://codenotfound.com/spring-kafka-apache-avro-serializer-deserializer-example.html

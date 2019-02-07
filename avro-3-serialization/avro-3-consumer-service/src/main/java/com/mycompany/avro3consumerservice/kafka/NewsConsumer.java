@@ -1,6 +1,6 @@
-package com.mycompany.avroconsumerservice.kafka;
+package com.mycompany.avro3consumerservice.kafka;
 
-import com.mycompany.avroconsumerservice.avro.NewsMessage;
+import com.mycompany.avro3consumerservice.avro.NewsMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class KafkaConsumer {
+public class NewsConsumer {
 
     @KafkaListener(topics = "${kafka.consumer.topic}", groupId = "${kafka.consumer.group-id}")
     public void listen(@Payload NewsMessage newsMessage,

@@ -1,8 +1,6 @@
-package com.mycompany.avro2consumerservice.kafka;
+package com.mycompany.avroconsumerservice.kafka;
 
-import com.mycompany.commons.avroserialization.avro.NewsMessage;
-import io.confluent.kafka.serializers.KafkaAvroDeserializer;
-import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
+import com.mycompany.avroconsumerservice.avro.NewsMessage;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,16 +16,13 @@ import java.util.Map;
 
 @EnableKafka
 @Configuration
-public class KafkaConsumerConfig {
+public class NewsConsumerConfig {
 
     @Value("${kafka.bootstrap-servers}")
     private String bootstrapServers;
 
     @Value("${kafka.consumer.auto-offset-reset}")
     private String autoOffsetReset;
-
-    @Value("${kafka.schema-registry-url}")
-    private String schemaRegistryUrl;
 
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, NewsMessage> kafkaListenerContainerFactory() {
@@ -38,7 +33,7 @@ public class KafkaConsumerConfig {
 
     @Bean
     public ConsumerFactory<String, NewsMessage> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs());
+        return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(), new AvroDeserializer<>(NewsMessage.class));
     }
 
     @Bean
@@ -46,11 +41,8 @@ public class KafkaConsumerConfig {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, AvroDeserializer.class);
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, autoOffsetReset);
-
-        props.put(KafkaAvroDeserializerConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
-        props.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);
         return props;
     }
 

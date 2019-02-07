@@ -3,6 +3,7 @@ package com.mycompany.avro3producerservice.kafka;
 import com.mycompany.avro3producerservice.avro.NewsMessage;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,13 +17,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaProducerConfig {
+public class NewsProducerConfig {
 
     @Value("${kafka.bootstrap-servers}")
     private String bootstrapServers;
 
     @Value("${kafka.schema-registry-url}")
     private String schemaRegistryUrl;
+
+    @Value("${kafka.producer.topic}")
+    private String topic;
+
+    @Value("${kafka.producer.num-partitions}")
+    private Integer numPartitions;
 
     @Bean
     public ProducerFactory<String, NewsMessage> producerFactory() {
@@ -42,6 +49,11 @@ public class KafkaProducerConfig {
     @Bean
     public KafkaTemplate<String, NewsMessage> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
+    }
+
+    @Bean
+    public NewTopic newTopic() {
+        return new NewTopic(topic, numPartitions, (short) 1);
     }
 
 }

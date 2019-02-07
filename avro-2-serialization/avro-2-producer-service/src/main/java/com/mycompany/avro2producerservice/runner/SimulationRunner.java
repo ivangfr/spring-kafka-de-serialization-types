@@ -1,7 +1,7 @@
 package com.mycompany.avro2producerservice.runner;
 
 import com.mycompany.avro2producerservice.domain.News;
-import com.mycompany.avro2producerservice.kafka.KafkaProducer;
+import com.mycompany.avro2producerservice.kafka.NewsProducer;
 import com.mycompany.commons.avroserialization.avro.NewsMessage;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
@@ -16,12 +16,12 @@ public class SimulationRunner implements CommandLineRunner {
     @Value("${simulation.sleep}")
     private Integer sleep;
 
-    private final KafkaProducer kafkaProducer;
+    private final NewsProducer newsProducer;
     private final RandomNews randomNews;
     private final MapperFacade mapperFacade;
 
-    public SimulationRunner(KafkaProducer kafkaProducer, RandomNews randomNews, MapperFacade mapperFacade) {
-        this.kafkaProducer = kafkaProducer;
+    public SimulationRunner(NewsProducer newsProducer, RandomNews randomNews, MapperFacade mapperFacade) {
+        this.newsProducer = newsProducer;
         this.randomNews = randomNews;
         this.mapperFacade = mapperFacade;
     }
@@ -30,7 +30,7 @@ public class SimulationRunner implements CommandLineRunner {
     public void run(String... args) throws InterruptedException {
         while (true) {
             News news = randomNews.generate();
-            kafkaProducer.send(mapperFacade.map(news, NewsMessage.class));
+            newsProducer.send(mapperFacade.map(news, NewsMessage.class));
 
             Thread.sleep(sleep);
         }

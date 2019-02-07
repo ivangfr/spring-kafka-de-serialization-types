@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class KafkaProducer {
+public class NewsProducer {
 
     private final KafkaTemplate<String, News> kafkaTemplate;
 
-    public KafkaProducer(KafkaTemplate<String, News> kafkaTemplate) {
+    public NewsProducer(KafkaTemplate<String, News> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
@@ -20,7 +20,7 @@ public class KafkaProducer {
     private String kafkaTopic;
 
     public void send(News news) {
-        log.info("Sending News with id '{}' to topic '{}'", news.getId(), kafkaTopic);
+        log.info("Sending News '{}' to topic '{}'", news, kafkaTopic);
         kafkaTemplate.send(kafkaTopic, news.getFromId().toString(), news);
     }
 

@@ -1,4 +1,4 @@
-server.port: 9080
+server.port: 9084
 
 spring:
   application:
