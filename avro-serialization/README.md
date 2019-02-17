@@ -1,6 +1,6 @@
-# springboot-spring-kafka
+# `springboot-spring-kafka`
 
-## avro-serialization
+# avro-serialization
 
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that
 listens those messages from `Kafka`.
@@ -11,23 +11,26 @@ listens those messages from `Kafka`.
 
 - We needed to implement `AvroSerializer` and `AvroDeserializer` classes.
 
-## How to run
+# How to run
 
-### avro-producer-service
+> Note: before starting producer and consumer, the containers present in docker-compose up and running as explained in
+the main README.
 
-- Open a new terminal and inside `springboot-spring-kafka/avro-serialization/avro-producer-service` run
+## avro-producer-service
+
+- In a terminal, inside `springboot-spring-kafka` root folder, run
 ```
-./mvn spring-boot:run
+./mvnw spring-boot:run --projects avro-serialization/avro-producer-service
 ```
 
 - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka`
 topic `avro-serialization-news`. The default `delay` between messages is `3 seconds`.
 
-### avro-consumer-service
+## avro-consumer-service
 
-- Open a new terminal and inside `springboot-spring-kafka/avro-serialization/avro-consumer-service` run
+- Open a new terminal and, inside `springboot-spring-kafka` root folder, run
 ```
-./mvn spring-boot:run
+./mvnw spring-boot:run --projects avro-serialization/avro-consumer-service
 ```
 
 - Once the consumer is up and running, it will start listening `News` messages from the `Kafka` topic
