@@ -1,7 +1,6 @@
 package com.mycompany.avro3consumerservice.kafka;
 
 import com.mycompany.avro3consumerservice.avro.NewsMessage;
-import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

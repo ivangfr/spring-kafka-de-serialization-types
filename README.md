@@ -1,12 +1,12 @@
 # `springboot-spring-kafka`
 
 The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io/spring-kafka/reference/htmlsingle/).
-We've implemented 5 examples of producer and consumer services that exchanges messages through
+We've implemented 5 examples of `producer` and `consumer` services that exchanges messages through
 [`Kafka`](https://kafka.apache.org/) using different types of serialization and approaches.
 
 ## Start Environment
 
-Open a terminal and inside `/springboot-spring-kafka` root folder run
+Open a terminal and inside `springboot-spring-kafka` root folder run
 ```
 docker-compose up -d
 ```
@@ -16,9 +16,9 @@ Wait a little bit until all containers are `Up (healthy)`. To check the status o
 docker-compose ps
 ```
 
-## Samples
+## Examples
 
-The following samples demonstrate a **producer** that pushes _"News"_ messages to a topic in Kafka and a **consumer**
+The following examples demonstrate a **producer** that pushes _"News"_ messages to a topic in Kafka and a **consumer**
 that listens those messages from Kafka.
 
 ![project-diagram-samples](images/project-diagram-samples.png)
