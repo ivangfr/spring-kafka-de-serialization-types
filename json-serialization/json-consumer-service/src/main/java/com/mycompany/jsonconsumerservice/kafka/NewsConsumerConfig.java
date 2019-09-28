@@ -26,19 +26,19 @@ public class NewsConsumerConfig {
     private String autoOffsetReset;
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, News> kafkaListenerContainerFactory() {
+    ConcurrentKafkaListenerContainerFactory<String, News> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, News> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
 
     @Bean
-    public ConsumerFactory<String, News> consumerFactory() {
+    ConsumerFactory<String, News> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(), new JsonDeserializer<>(News.class));
     }
 
     @Bean
-    public Map<String, Object> consumerConfigs() {
+    Map<String, Object> consumerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);

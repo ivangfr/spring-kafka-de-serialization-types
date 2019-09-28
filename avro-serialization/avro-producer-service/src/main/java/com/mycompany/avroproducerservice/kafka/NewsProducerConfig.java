@@ -1,6 +1,7 @@
 package com.mycompany.avroproducerservice.kafka;
 
 import com.mycompany.avroproducerservice.avro.NewsMessage;
+import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
+import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
@@ -27,12 +29,12 @@ public class NewsProducerConfig {
     private Integer numPartitions;
 
     @Bean
-    public ProducerFactory<String, NewsMessage> producerFactory() {
+    ProducerFactory<String, NewsMessage> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
-    public Map<String, Object> producerConfigs() {
+    Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -41,12 +43,21 @@ public class NewsProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, NewsMessage> kafkaTemplate() {
+    KafkaTemplate<String, NewsMessage> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 
+    // As the application will create a topic in Kafka, it is better to update the KafkaAdmin's BOOTSTRAP_SERVERS_CONFIG
+    // property with the bootstrap servers' url configured, otherwise it will get the default 'localhost:9082'
     @Bean
-    public NewTopic newTopic() {
+    KafkaAdmin kafkaAdmin() {
+        Map<String, Object> configs = new HashMap<>();
+        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        return new KafkaAdmin(configs);
+    }
+
+    @Bean
+    NewTopic newTopic() {
         return new NewTopic(topic, numPartitions, (short) 1);
     }
 
