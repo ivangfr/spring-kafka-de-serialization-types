@@ -14,7 +14,7 @@ on producer and consumer.
 
 ## How to run
 
-> **Note**: before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running
+> Note. before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running
 as explained in the main README.
 
 ### avro-3-producer-service
