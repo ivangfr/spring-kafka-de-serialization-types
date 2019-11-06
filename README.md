@@ -23,15 +23,15 @@ that listens those messages from Kafka.
 
 ![project-diagram-samples](images/project-diagram-samples.png)
 
-### [# string-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/string-serialization)
+### [# string-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/string-serialization#springboot-spring-kafka)
 
-### [# json-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/json-serialization)
+### [# json-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/json-serialization#springboot-spring-kafka)
 
-### [# avro-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-serialization)
+### [# avro-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-serialization#springboot-spring-kafka)
 
-### [# avro-2-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-2-serialization)
+### [# avro-2-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-2-serialization#springboot-spring-kafka)
 
-### [# avro-3-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-3-serialization)
+### [# avro-3-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-3-serialization#springboot-spring-kafka)
 
 ## Shutdown
 

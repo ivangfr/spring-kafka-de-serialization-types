@@ -5,18 +5,19 @@
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that
 listens those messages from `Kafka`.
 
-- The producer serializes the message `key` using `StringSerializer` and the message `value` using `AvroSerializer`.
-- The consumer deserializes the message `key` using `StringDeserializer` and the message `value` using `AvroDeserializer`.
+- Producer serializes the message `key` using `StringSerializer` and the message `value` using `AvroSerializer`.
+- Consumer deserializes the message `key` using `StringDeserializer` and the message `value` using `AvroDeserializer`.
 - We needed to implement `AvroSerializer` and `AvroDeserializer` classes.
 
 ## How to run
 
 > Note. before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running
-as explained in the main README.
+> as explained at [Start Environment](https://github.com/ivangfr/springboot-spring-kafka#start-environment) section of
+> the main README.
 
 ### avro-producer-service
 
-In a terminal, inside `springboot-spring-kafka` root folder, run
+In a terminal and inside `springboot-spring-kafka` root folder run
 ```
 ./mvnw spring-boot:run --projects avro-serialization/avro-producer-service
 ```
@@ -31,7 +32,7 @@ topic `avro-serialization-news`. The default `delay` between messages is `3 seco
 
 ### avro-consumer-service
 
-Open a new terminal and, inside `springboot-spring-kafka` root folder, run
+Open a new terminal and inside `springboot-spring-kafka` root folder run
 ```
 ./mvnw spring-boot:run --projects avro-serialization/avro-consumer-service
 ```

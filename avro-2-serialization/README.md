@@ -5,8 +5,8 @@
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that
 listens those messages from `Kafka`.
 
-- The producer serializes the message `key` using `StringSerializer` and the message `value` using `KafkaAvroSerializer`.
-- The consumer deserializes the message `key` using `StringDeserializer` and the message `value` using `KafkaAvroDeserializer`.
+- Producer serializes the message `key` using `StringSerializer` and the message `value` using `KafkaAvroSerializer`.
+- Consumer deserializes the message `key` using `StringDeserializer` and the message `value` using `KafkaAvroDeserializer`.
 - This type of serialization uses `Schema Registry`.
 - The Java class generated from the `Avro` schema **MUST** have the same `name` and `package (or namespace)` on producer
 and consumer.
@@ -14,11 +14,12 @@ and consumer.
 ## How to run
 
 > Note. before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running
-as explained in the main README.
+> as explained at [Start Environment](https://github.com/ivangfr/springboot-spring-kafka#start-environment) section of
+> the main README.
 
 ### avro-2-producer-service
 
-In a new terminal, inside `springboot-spring-kafka` root folder, run
+In a new terminal and inside `springboot-spring-kafka` root folder run
 ```
 ./mvnw spring-boot:run --projects avro-2-serialization/avro-2-producer-service
 ```
@@ -33,7 +34,7 @@ topic `avro-2-serialization-news`. The default `delay` between messages is `3 se
 
 ### avro-2-consumer-service
 
-Open a new terminal and, inside `springboot-spring-kafka` root folder, run
+Open a new terminal and inside `springboot-spring-kafka` root folder run
 ```
 ./mvnw spring-boot:run --projects avro-2-serialization/avro-2-consumer-service
 ```
