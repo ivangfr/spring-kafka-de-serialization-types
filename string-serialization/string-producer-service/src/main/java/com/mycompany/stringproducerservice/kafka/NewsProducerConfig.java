@@ -1,5 +1,6 @@
 package com.mycompany.stringproducerservice.kafka;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -15,6 +16,7 @@ import org.springframework.kafka.core.ProducerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+@RequiredArgsConstructor
 @Configuration
 public class NewsProducerConfig {
 
@@ -26,7 +28,6 @@ public class NewsProducerConfig {
 
     @Value("${kafka.producer.num-partitions}")
     private Integer numPartitions;
-
 
     @Bean
     ProducerFactory<String, String> producerFactory() {

@@ -11,8 +11,6 @@ import java.util.UUID;
 @Component
 public class RandomNews {
 
-    private final Random random = new Random();
-
     public News generate() {
         News news = new News();
         news.setId(UUID.randomUUID().toString());
@@ -23,8 +21,9 @@ public class RandomNews {
         return news;
     }
 
-    private static List<String> medias = Arrays.asList("CNN", "New York Times", "BBC", "Al-Jazeera");
-    private static List<String> titles = Arrays.asList(
+    private static final Random random = new Random();
+    private static final List<String> medias = Arrays.asList("CNN", "New York Times", "BBC", "Al-Jazeera");
+    private static final List<String> titles = Arrays.asList(
             "Scolari wins Brazilian championship with Palmeiras",
             "Brexit is killing investment in UK car industry",
             "Jaguar Land Rover is slashing 4,500 jobs",

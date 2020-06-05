@@ -5,12 +5,13 @@
  */
 package com.mycompany.avro3consumerservice.avro;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
+import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
-@SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -6624996891663615548L;
@@ -26,7 +27,16 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
       new BinaryMessageDecoder<NewsMessage>(MODEL$, SCHEMA$);
 
   /**
+   * Return the BinaryMessageEncoder instance used by this class.
+   * @return the message encoder used by this class
+   */
+  public static BinaryMessageEncoder<NewsMessage> getEncoder() {
+    return ENCODER;
+  }
+
+  /**
    * Return the BinaryMessageDecoder instance used by this class.
+   * @return the message decoder used by this class
    */
   public static BinaryMessageDecoder<NewsMessage> getDecoder() {
     return DECODER;
@@ -35,17 +45,27 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
   /**
    * Create a new BinaryMessageDecoder instance for this class that uses the specified {@link SchemaStore}.
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
+   * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
   public static BinaryMessageDecoder<NewsMessage> createDecoder(SchemaStore resolver) {
     return new BinaryMessageDecoder<NewsMessage>(MODEL$, SCHEMA$, resolver);
   }
 
-  /** Serializes this NewsMessage to a ByteBuffer. */
+  /**
+   * Serializes this NewsMessage to a ByteBuffer.
+   * @return a buffer holding the serialized data for this instance
+   * @throws java.io.IOException if this instance could not be serialized
+   */
   public java.nio.ByteBuffer toByteBuffer() throws java.io.IOException {
     return ENCODER.encode(this);
   }
 
-  /** Deserializes a NewsMessage from a ByteBuffer. */
+  /**
+   * Deserializes a NewsMessage from a ByteBuffer.
+   * @param b a byte buffer holding serialized data for an instance of this class
+   * @return a NewsMessage instance decoded from the given buffer
+   * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
+   */
   public static NewsMessage fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
@@ -77,6 +97,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
     this.title = title;
   }
 
+  public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
@@ -109,6 +130,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
     return id;
   }
 
+
   /**
    * Sets the value of the 'id' field.
    * @param value the value to set.
@@ -121,15 +143,16 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'fromId' field.
    * @return The value of the 'fromId' field.
    */
-  public java.lang.Integer getFromId() {
+  public int getFromId() {
     return fromId;
   }
+
 
   /**
    * Sets the value of the 'fromId' field.
    * @param value the value to set.
    */
-  public void setFromId(java.lang.Integer value) {
+  public void setFromId(int value) {
     this.fromId = value;
   }
 
@@ -140,6 +163,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
   public java.lang.CharSequence getFromName() {
     return fromName;
   }
+
 
   /**
    * Sets the value of the 'fromName' field.
@@ -156,6 +180,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
   public java.lang.CharSequence getTitle() {
     return title;
   }
+
 
   /**
    * Sets the value of the 'title' field.
@@ -179,7 +204,11 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
    * @return A new NewsMessage RecordBuilder
    */
   public static com.mycompany.avro3consumerservice.avro.NewsMessage.Builder newBuilder(com.mycompany.avro3consumerservice.avro.NewsMessage.Builder other) {
-    return new com.mycompany.avro3consumerservice.avro.NewsMessage.Builder(other);
+    if (other == null) {
+      return new com.mycompany.avro3consumerservice.avro.NewsMessage.Builder();
+    } else {
+      return new com.mycompany.avro3consumerservice.avro.NewsMessage.Builder(other);
+    }
   }
 
   /**
@@ -188,12 +217,17 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
    * @return A new NewsMessage RecordBuilder
    */
   public static com.mycompany.avro3consumerservice.avro.NewsMessage.Builder newBuilder(com.mycompany.avro3consumerservice.avro.NewsMessage other) {
-    return new com.mycompany.avro3consumerservice.avro.NewsMessage.Builder(other);
+    if (other == null) {
+      return new com.mycompany.avro3consumerservice.avro.NewsMessage.Builder();
+    } else {
+      return new com.mycompany.avro3consumerservice.avro.NewsMessage.Builder(other);
+    }
   }
 
   /**
    * RecordBuilder for NewsMessage instances.
    */
+  @org.apache.avro.specific.AvroGenerated
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<NewsMessage>
     implements org.apache.avro.data.RecordBuilder<NewsMessage> {
 
@@ -215,19 +249,19 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
-        fieldSetFlags()[0] = true;
+        fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
       if (isValidValue(fields()[1], other.fromId)) {
         this.fromId = data().deepCopy(fields()[1].schema(), other.fromId);
-        fieldSetFlags()[1] = true;
+        fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
       if (isValidValue(fields()[2], other.fromName)) {
         this.fromName = data().deepCopy(fields()[2].schema(), other.fromName);
-        fieldSetFlags()[2] = true;
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
       if (isValidValue(fields()[3], other.title)) {
         this.title = data().deepCopy(fields()[3].schema(), other.title);
-        fieldSetFlags()[3] = true;
+        fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
     }
 
@@ -236,7 +270,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
      * @param other The existing instance to copy.
      */
     private Builder(com.mycompany.avro3consumerservice.avro.NewsMessage other) {
-            super(SCHEMA$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
@@ -262,6 +296,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
     public java.lang.CharSequence getId() {
       return id;
     }
+
 
     /**
       * Sets the value of the 'id' field.
@@ -298,9 +333,10 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'fromId' field.
       * @return The value.
       */
-    public java.lang.Integer getFromId() {
+    public int getFromId() {
       return fromId;
     }
+
 
     /**
       * Sets the value of the 'fromId' field.
@@ -340,6 +376,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
       return fromName;
     }
 
+
     /**
       * Sets the value of the 'fromName' field.
       * @param value The value of 'fromName'.
@@ -378,6 +415,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
     public java.lang.CharSequence getTitle() {
       return title;
     }
+
 
     /**
       * Sets the value of the 'title' field.
@@ -420,6 +458,8 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
         record.fromName = fieldSetFlags()[2] ? this.fromName : (java.lang.CharSequence) defaultValue(fields()[2]);
         record.title = fieldSetFlags()[3] ? this.title : (java.lang.CharSequence) defaultValue(fields()[3]);
         return record;
+      } catch (org.apache.avro.AvroMissingFieldException e) {
+        throw e;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
@@ -444,4 +484,67 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
+  @Override protected boolean hasCustomCoders() { return true; }
+
+  @Override public void customEncode(org.apache.avro.io.Encoder out)
+    throws java.io.IOException
+  {
+    out.writeString(this.id);
+
+    out.writeInt(this.fromId);
+
+    out.writeString(this.fromName);
+
+    out.writeString(this.title);
+
+  }
+
+  @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
+    throws java.io.IOException
+  {
+    org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
+    if (fieldOrder == null) {
+      this.id = in.readString(this.id instanceof Utf8 ? (Utf8)this.id : null);
+
+      this.fromId = in.readInt();
+
+      this.fromName = in.readString(this.fromName instanceof Utf8 ? (Utf8)this.fromName : null);
+
+      this.title = in.readString(this.title instanceof Utf8 ? (Utf8)this.title : null);
+
+    } else {
+      for (int i = 0; i < 4; i++) {
+        switch (fieldOrder[i].pos()) {
+        case 0:
+          this.id = in.readString(this.id instanceof Utf8 ? (Utf8)this.id : null);
+          break;
+
+        case 1:
+          this.fromId = in.readInt();
+          break;
+
+        case 2:
+          this.fromName = in.readString(this.fromName instanceof Utf8 ? (Utf8)this.fromName : null);
+          break;
+
+        case 3:
+          this.title = in.readString(this.title instanceof Utf8 ? (Utf8)this.title : null);
+          break;
+
+        default:
+          throw new java.io.IOException("Corrupt ResolvingDecoder.");
+        }
+      }
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+

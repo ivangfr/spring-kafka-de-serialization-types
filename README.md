@@ -9,7 +9,7 @@ The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io
   docker-compose up -d
   ```
 
-- Wait a little bit until all containers are `Up (healthy)`. To check the status of the containers, run
+- Wait a little bit until all containers are `Up (healthy)`. To check the status of the containers run
   ```
   docker-compose ps
   ```

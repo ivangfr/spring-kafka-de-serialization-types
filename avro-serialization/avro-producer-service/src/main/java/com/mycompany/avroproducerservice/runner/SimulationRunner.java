@@ -1,14 +1,14 @@
 package com.mycompany.avroproducerservice.runner;
 
-import com.mycompany.avroproducerservice.avro.NewsMessage;
-import com.mycompany.avroproducerservice.domain.News;
 import com.mycompany.avroproducerservice.kafka.NewsProducer;
+import com.mycompany.avroproducerservice.mapper.NewsMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+@RequiredArgsConstructor
 @Slf4j
 @Component
 public class SimulationRunner implements CommandLineRunner {
@@ -17,21 +17,13 @@ public class SimulationRunner implements CommandLineRunner {
     private Integer sleep;
 
     private final NewsProducer newsProducer;
+    private final NewsMapper newsMapper;
     private final RandomNews randomNews;
-    private final MapperFacade mapperFacade;
-
-    public SimulationRunner(NewsProducer newsProducer, RandomNews randomNews, MapperFacade mapperFacade) {
-        this.newsProducer = newsProducer;
-        this.randomNews = randomNews;
-        this.mapperFacade = mapperFacade;
-    }
 
     @Override
     public void run(String... args) throws InterruptedException {
         while (true) {
-            News news = randomNews.generate();
-            newsProducer.send(mapperFacade.map(news, NewsMessage.class));
-
+            newsProducer.send(newsMapper.toNewsMessage(randomNews.generate()));
             Thread.sleep(sleep);
         }
     }
