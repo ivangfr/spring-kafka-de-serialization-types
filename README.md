@@ -2,18 +2,6 @@
 
 The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io/spring-kafka/reference/htmlsingle/). We've implemented 5 examples of `producer` and `consumer` services that exchanges messages through [`Kafka`](https://kafka.apache.org/) using different types of serialization and approaches.
 
-## Start Environment
-
-- Open a terminal and inside `springboot-spring-kafka` root folder run
-  ```
-  docker-compose up -d
-  ```
-
-- Wait a little bit until all containers are `Up (healthy)`. To check the status of the containers run
-  ```
-  docker-compose ps
-  ```
-
 ## Examples
 
 The following examples demonstrate a **producer** that pushes _"News"_ messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`.
@@ -25,6 +13,24 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 - ### [avro-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-serialization#springboot-spring-kafka)
 - ### [avro-2-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-2-serialization#springboot-spring-kafka)
 - ### [avro-3-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-3-serialization#springboot-spring-kafka)
+
+## Prerequisites
+
+- `Java 11+`
+- `Docker`
+- `Docker-Compose`
+
+## Start Environment
+
+- Open a terminal and inside `springboot-spring-kafka` root folder run
+  ```
+  docker-compose up -d
+  ```
+
+- Wait a little bit until all containers are `Up (healthy)`. To check the status of the containers run
+  ```
+  docker-compose ps
+  ```
 
 ## Shutdown
 
