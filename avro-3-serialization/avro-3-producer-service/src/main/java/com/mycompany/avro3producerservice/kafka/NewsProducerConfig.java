@@ -3,11 +3,12 @@ package com.mycompany.avro3producerservice.kafka;
 import com.mycompany.avro3producerservice.avro.NewsMessage;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
+import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -18,20 +19,11 @@ import org.springframework.kafka.core.ProducerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+@RequiredArgsConstructor
 @Configuration
 public class NewsProducerConfig {
 
-    @Value("${kafka.bootstrap-servers}")
-    private String bootstrapServers;
-
-    @Value("${kafka.schema-registry-url}")
-    private String schemaRegistryUrl;
-
-    @Value("${kafka.producer.topic}")
-    private String topic;
-
-    @Value("${kafka.producer.num-partitions}")
-    private Integer numPartitions;
+    private final KafkaProperties kafkaProperties;
 
     @Bean
     ProducerFactory<String, NewsMessage> producerFactory() {
@@ -40,11 +32,10 @@ public class NewsProducerConfig {
 
     @Bean
     Map<String, Object> producerConfigs() {
-        Map<String, Object> props = new HashMap<>();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        Map<String, Object> props = kafkaProperties.buildProducerProperties();
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
-        props.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
+        props.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, kafkaProperties.getProperties().get("schema-registry-url"));
         return props;
     }
 
@@ -58,13 +49,14 @@ public class NewsProducerConfig {
     @Bean
     KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());
         return new KafkaAdmin(configs);
     }
 
     @Bean
     NewTopic newTopic() {
-        return new NewTopic(topic, numPartitions, (short) 1);
+        Map<String, String> producerProperties = kafkaProperties.getProducer().getProperties();
+        return new NewTopic(producerProperties.get("topic"), Integer.parseInt(producerProperties.get("num-partitions")), (short) 1);
     }
 
 }

@@ -1,13 +1,13 @@
-server.port: 9085
+server.port: 9083
 
 spring:
   application:
-    name: avro-consumer-service
+    name: json-consumer-service
   kafka:
     bootstrap-servers: localhost:29092
     consumer:
-      group-id: avro-consumer-service-group
-      topic: avro-serialization-news
+      group-id: json-consumer-service-group
+      topic: json-serialization-news
       auto-offset-reset: earliest
       properties:
         concurrency: 2

@@ -3,12 +3,13 @@ server.port: 9086
 spring:
   application:
     name: avro-2-producer-service
+  kafka:
+    bootstrap-servers: localhost:29092
+    properties:
+      schema-registry-url: http://localhost:8081
+    producer:
+      properties:
+        topic: avro-2-serialization-news
+        num-partitions: 4
 
 simulation.sleep: 3000
-
-kafka:
-  bootstrap-servers: localhost:29092
-  schema-registry-url: http://localhost:8081
-  producer:
-    topic: avro-2-serialization-news
-    num-partitions: 4

@@ -3,11 +3,13 @@ server.port: 9089
 spring:
   application:
     name: avro-3-consumer-service
-
-kafka:
-  bootstrap-servers: localhost:29092
-  schema-registry-url: http://localhost:8081
-  consumer:
-    group-id: avro-3-consumer-service-group
-    auto-offset-reset: earliest
-    topic: avro-3-serialization-news
+  kafka:
+    bootstrap-servers: localhost:29092
+    properties:
+      schema-registry-url: http://localhost:8081
+    consumer:
+      group-id: avro-3-consumer-service-group
+      topic: avro-3-serialization-news
+      auto-offset-reset: earliest
+      properties:
+        concurrency: 2
