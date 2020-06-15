@@ -9,5 +9,5 @@ spring:
       group-id: string-consumer-service-group
       topic: string-serialization-news
       auto-offset-reset: earliest
-      properties:
-        concurrency: 2
+    listener:
+      concurrency: 2

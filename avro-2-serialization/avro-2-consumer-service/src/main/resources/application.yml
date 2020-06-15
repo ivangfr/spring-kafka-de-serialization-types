@@ -11,5 +11,5 @@ spring:
       group-id: avro-2-consumer-service-group
       topic: avro-2-serialization-news
       auto-offset-reset: earliest
-      properties:
-        concurrency: 2
+    listener:
+      concurrency: 2

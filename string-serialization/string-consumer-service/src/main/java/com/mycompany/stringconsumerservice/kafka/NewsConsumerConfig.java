@@ -24,7 +24,7 @@ public class NewsConsumerConfig {
     ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
-        factory.setConcurrency(Integer.parseInt(kafkaProperties.getConsumer().getProperties().get("concurrency")));
+        factory.setConcurrency(kafkaProperties.getListener().getConcurrency());
         return factory;
     }
 

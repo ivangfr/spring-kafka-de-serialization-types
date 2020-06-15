@@ -2,14 +2,12 @@ package com.mycompany.avro3consumerservice.kafka;
 
 import io.confluent.kafka.serializers.AbstractKafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.Schema;
 import org.apache.kafka.common.serialization.Deserializer;
 
 import java.lang.reflect.Field;
 import java.util.Map;
 
-@Slf4j
 public class SpecificAvroWithSchemaDeserializer extends AbstractKafkaAvroDeserializer implements Deserializer<Object> {
 
     public static final String AVRO_KEY_RECORD_TYPE = "avro.key.record.type";
