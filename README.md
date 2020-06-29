@@ -16,9 +16,9 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 ## Prerequisites
 
-- `Java 11+`
-- `Docker`
-- `Docker-Compose`
+- [`Java 11+`](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+- [`Docker`](https://www.docker.com/)
+- [`Docker-Compose`](https://docs.docker.com/compose/install/)
 
 ## Start Environment
 
@@ -57,7 +57,7 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
   _Configuration_
   - First, you must create a new cluster. Click on `Cluster` (dropdown on the header) and then on `Add Cluster`
-  - Type the name of your cluster in `Cluster Name` field, for example: `MyZooCluster`
+  - Type the name of your cluster in `Cluster Name` field, for example: `MyCluster`
   - Type `zookeeper:2181`in `Cluster Zookeeper Hosts` field
   - Enable checkbox `Poll consumer information (Not recommended for large # of consumers if ZK is used for offsets tracking on older Kafka versions)`
   - Click on `Save` button at the bottom of the page.
