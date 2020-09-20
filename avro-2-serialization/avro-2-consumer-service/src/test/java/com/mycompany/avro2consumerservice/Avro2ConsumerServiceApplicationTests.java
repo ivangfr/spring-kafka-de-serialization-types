@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @Disabled
 @SpringBootTest
-public class Avro2ConsumerServiceApplicationTests {
+class Avro2ConsumerServiceApplicationTests {
 
     @Test
     void contextLoads() {

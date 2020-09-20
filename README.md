@@ -27,7 +27,7 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
   docker-compose up -d
   ```
 
-- Wait a little bit until all containers are `Up (healthy)`. To check the status of the containers run
+- Wait a bit until all containers are `Up (healthy)`. To check the status of the containers run
   ```
   docker-compose ps
   ```
