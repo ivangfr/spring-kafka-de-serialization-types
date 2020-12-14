@@ -1,6 +1,6 @@
 # springboot-spring-kafka
 
-The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io/spring-kafka/reference/htmlsingle/). We've implemented 5 examples of `producer` and `consumer` services that exchanges messages through [`Kafka`](https://kafka.apache.org/) using different types of serialization and approaches.
+The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io/spring-kafka/reference/html/). We've implemented 5 examples of `producer` and `consumer` services that exchanges messages through [`Kafka`](https://kafka.apache.org/) using different types of serialization and approaches.
 
 ## Examples
 
@@ -27,7 +27,7 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
   docker-compose up -d
   ```
 
-- Wait a bit until all containers are `Up (healthy)`. To check the status of the containers run
+- Wait until all containers are `Up (healthy)`. To check the status of the containers run
   ```
   docker-compose ps
   ```

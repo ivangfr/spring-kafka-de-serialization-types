@@ -71,10 +71,10 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.CharSequence id;
-  @Deprecated public int fromId;
-  @Deprecated public java.lang.CharSequence fromName;
-  @Deprecated public java.lang.CharSequence title;
+   private java.lang.CharSequence id;
+   private int fromId;
+   private java.lang.CharSequence fromName;
+   private java.lang.CharSequence title;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -106,7 +106,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
     case 1: return fromId;
     case 2: return fromName;
     case 3: return title;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -118,7 +118,7 @@ public class NewsMessage extends org.apache.avro.specific.SpecificRecordBase imp
     case 1: fromId = (java.lang.Integer)value$; break;
     case 2: fromName = (java.lang.CharSequence)value$; break;
     case 3: title = (java.lang.CharSequence)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 

@@ -2,8 +2,9 @@
 ## `> json-serialization`
 
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`
-- Producer serializes the message `key` using `StringSerializer` and the message `value` using `JsonSerializer`
-- Consumer deserializes the message `key` using `StringDeserializer` and the message `value` using `JsonDeserializer`
+- Producer serializes the message `key` using `StringSerializer` and the message `value` using `JsonSerializer`;
+- Consumer deserializes the message `key` using `StringDeserializer` and the message `value` using `JsonDeserializer`;
+- Producer creates the Kafka topics and Consumer doesn't.
 
 ## How to run producer and consumer
 
@@ -18,7 +19,7 @@ This sample demonstrates a **producer** that pushes `News` messages to a topic i
   ./mvnw spring-boot:run --projects json-serialization/json-producer-service
   ```
 
-  As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `json-serialization-news`. The default `delay` between messages is `3 seconds`
+  As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `json-serialization-news`. The default `delay` between messages is `3 seconds`.
 
 ### json-consumer-service
 
@@ -33,4 +34,4 @@ This sample demonstrates a **producer** that pushes `News` messages to a topic i
 
 ## How to stop producer and consumer
 
-Go to the terminal where the applications are running and press `Ctrl+C`
+Go to the terminal where the applications are running and press `Ctrl+C`.
