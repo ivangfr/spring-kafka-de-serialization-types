@@ -73,7 +73,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
     In a terminal, run the following Docker command
     ```
-    docker run --rm --name avro-3-producer-service -p 9086:9086 \
+    docker run --rm --name avro-3-producer-service -p 9088:9088 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 -e SCHEMA_REGISTRY_HOST=schema-registry \
       --network=springboot-spring-kafka_default \
       docker.mycompany.com/avro-3-producer-service:1.0.0
@@ -83,7 +83,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
     In another terminal, run the Docker command below
     ```
-    docker run --rm --name avro-3-consumer-service -p 9087:9087 \
+    docker run --rm --name avro-3-consumer-service -p 9089:9089 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 -e SCHEMA_REGISTRY_HOST=schema-registry \
       --network=springboot-spring-kafka_default \
       docker.mycompany.com/avro-3-consumer-service:1.0.0
