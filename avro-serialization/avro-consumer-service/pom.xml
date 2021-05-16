@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.mycompany</groupId>
         <artifactId>springboot-spring-kafka</artifactId>
@@ -15,8 +14,8 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <avro.version>1.10.1</avro.version>
-        <jakarta.xml.bind-api.version>2.3.3</jakarta.xml.bind-api.version>
+        <avro.version>1.10.2</avro.version>
+        <jakarta-xml-bind-api.version>2.3.3</jakarta-xml-bind-api.version>
     </properties>
 
     <dependencies>
@@ -44,7 +43,7 @@
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>${jakarta.xml.bind-api.version}</version>
+            <version>${jakarta-xml-bind-api.version}</version>
         </dependency>
 
         <dependency>
