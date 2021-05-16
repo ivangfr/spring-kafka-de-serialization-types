@@ -36,7 +36,7 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 - In a terminal, make sure you are in `springboot-spring-kafka` root folder
 
-- To stop and remove docker-compose containers, networks and volumes
+- To stop and remove docker-compose containers, network and volumes
   ```
   docker-compose down -v
   ```

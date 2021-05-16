@@ -11,7 +11,7 @@
 
     <groupId>com.mycompany</groupId>
     <artifactId>springboot-spring-kafka</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <name>springboot-spring-kafka</name>
@@ -19,6 +19,8 @@
 
     <properties>
         <java.version>11</java.version>
+        <jib-maven-plugin.version>3.0.0</jib-maven-plugin.version>
+        <docker-image.prefix>docker.mycompany.com</docker-image.prefix>
     </properties>
 
     <modules>
@@ -33,5 +35,20 @@
         <module>avro-3-serialization/avro-3-producer-service</module>
         <module>avro-3-serialization/avro-3-consumer-service</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>${jib-maven-plugin.version}</version>
+                <configuration>
+                    <to>
+                        <image>${docker-image.prefix}/${project.artifactId}:${project.version}</image>
+                    </to>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

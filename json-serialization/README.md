@@ -6,32 +6,76 @@ This sample demonstrates a **producer** that pushes `News` messages to a topic i
 - Consumer deserializes the message `key` using `StringDeserializer` and the message `value` using `JsonDeserializer`;
 - Producer creates the Kafka topics and Consumer doesn't.
 
-## How to run producer and consumer
+## Start Environment
 
-> **Note:** before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running as explained at [Start Environment](https://github.com/ivangfr/springboot-spring-kafka#start-environment) section of the main README
+Before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running as explained at [Start Environment](https://github.com/ivangfr/springboot-spring-kafka#start-environment) section of the main README
 
-### json-producer-service
+## Running applications using Maven
 
-- Open a terminal navigate to `springboot-spring-kafka` root folder
+- **json-producer-service**
 
-- Run application
-  ```
-  ./mvnw spring-boot:run --projects json-serialization/json-producer-service
-  ```
+  - Open a terminal navigate to `springboot-spring-kafka` root folder
+  - Run application
+    ```
+    ./mvnw spring-boot:run --projects json-serialization/json-producer-service
+    ```
+  - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `json-serialization-news`. The default `delay` between messages is `3 seconds`.
 
-  As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `json-serialization-news`. The default `delay` between messages is `3 seconds`.
+- **json-consumer-service**
 
-### json-consumer-service
+  - Open another terminal and make sure you are in `springboot-spring-kafka` root folder
+  - Run application
+    ```
+    ./mvnw spring-boot:run --projects json-serialization/json-consumer-service
+    ```
+  - Once the consumer is up and running, it will start listening `News` messages from the `Kafka` topic `json-serialization-news`
 
-- Open another terminal and make sure you are in `springboot-spring-kafka` root folder
+## Running applications as Docker containers
 
-- Run application
-  ```
-  ./mvnw spring-boot:run --projects json-serialization/json-consumer-service
-  ```
+- ### Build Docker images
 
-  Once the consumer is up and running, it will start listening `News` messages from the `Kafka` topic `json-serialization-news`
+  - Open a terminal navigate to `springboot-spring-kafka` root folder
+  - Run the following script to build the images
+    - JVM
+      ```
+      ./docker-build.sh json-serialization
+      ```
+    - Native (it's not implemented yet)
+      ```
+      ./docker-build.sh json-serialization native
+      ```
 
-## How to stop producer and consumer
+- ### Environment variables
 
-Go to the terminal where the applications are running and press `Ctrl+C`.
+  **json-producer-service** and **json-consumer-service**
+
+  | Environment Variable | Description                                                             |
+  | -------------------- | ----------------------------------------------------------------------- |
+  | `KAFKA_HOST`         | Specify host of the `Kafka` message broker to use (default `localhost`) |
+  | `KAFKA_PORT`         | Specify port of the `Kafka` message broker to use (default `29092`)     |
+
+- ### Run Docker containers
+
+  - **json-producer-service**
+
+    In a terminal, run the following Docker command
+    ```
+    docker run --rm --name json-producer-service -p 9082:9082 \
+      -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
+      --network=springboot-spring-kafka_default \
+      docker.mycompany.com/json-producer-service:1.0.0
+    ```
+
+  - **json-consumer-service**
+
+    In another terminal, run the Docker command below
+    ```
+    docker run --rm --name json-consumer-service -p 9083:9083 \
+      -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
+      --network=springboot-spring-kafka_default \
+      docker.mycompany.com/json-consumer-service:1.0.0
+    ```
+
+## Shutdown
+
+Go to the terminals where the applications are running and press `Ctrl+C`
