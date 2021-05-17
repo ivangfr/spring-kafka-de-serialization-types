@@ -12,21 +12,23 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 ## Running applications using Maven
 
-- **spring-producer-service**
+> **Note:** run `string-producer-service` first so that it can create the `Kafka` topics
+
+- **string-producer-service**
 
   - Open a terminal navigate to `springboot-spring-kafka` root folder
   - Run application
     ```
-    ./mvnw spring-boot:run --projects string-serialization/string-producer-service
+    ./mvnw clean package spring-boot:run --projects string-serialization/string-producer-service -DskipTests
     ```
   - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `string-serialization-news`. The default `delay` between messages is `3 seconds`.
 
-- **spring-consumer-service**
+- **string-consumer-service**
 
   - Open another terminal and make sure you are in `springboot-spring-kafka` root folder
   - Run application
     ```
-    ./mvnw spring-boot:run --projects string-serialization/string-consumer-service
+    ./mvnw clean package spring-boot:run --projects string-serialization/string-consumer-service -DskipTests
     ```
   - Once the consumer is up and running, it will start listening `News` messages from the `Kafka` topic `string-serialization-news`
 
@@ -40,14 +42,14 @@ Before starting producer and consumer, the services present in `docker-compose.y
       ```
       ./docker-build.sh string-serialization
       ```
-    - Native (it's not implemented yet)
+    - Native
       ```
       ./docker-build.sh string-serialization native
       ```
 
 - ### Environment variables
 
-  **spring-producer-service** and **spring-consumer-service**
+  **string-producer-service** and **string-consumer-service**
   
   | Environment Variable | Description                                                             |
   | -------------------- | ----------------------------------------------------------------------- |
@@ -56,7 +58,9 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - ### Run Docker containers
 
-  - **spring-producer-service**
+  > **Note:** run `string-producer-service` first so that it can create the `Kafka` topics
+
+  - **string-producer-service**
     
     In a terminal, run the following Docker command
     ```
@@ -66,7 +70,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
       docker.mycompany.com/string-producer-service:1.0.0
     ```
 
-  - **spring-consumer-service**
+  - **string-consumer-service**
     
     In another terminal, run the Docker command below
     ```

@@ -12,12 +12,14 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 ## Running applications using Maven
 
+> **Note:** run `json-producer-service` first so that it can create the `Kafka` topics
+
 - **json-producer-service**
 
   - Open a terminal navigate to `springboot-spring-kafka` root folder
   - Run application
     ```
-    ./mvnw spring-boot:run --projects json-serialization/json-producer-service
+    ./mvnw clean package spring-boot:run --projects json-serialization/json-producer-service -DskipTests
     ```
   - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `json-serialization-news`. The default `delay` between messages is `3 seconds`.
 
@@ -26,7 +28,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
   - Open another terminal and make sure you are in `springboot-spring-kafka` root folder
   - Run application
     ```
-    ./mvnw spring-boot:run --projects json-serialization/json-consumer-service
+    ./mvnw clean package spring-boot:run --projects json-serialization/json-consumer-service -DskipTests
     ```
   - Once the consumer is up and running, it will start listening `News` messages from the `Kafka` topic `json-serialization-news`
 
@@ -40,7 +42,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
       ```
       ./docker-build.sh json-serialization
       ```
-    - Native (it's not implemented yet)
+    - Native
       ```
       ./docker-build.sh json-serialization native
       ```
@@ -55,6 +57,8 @@ Before starting producer and consumer, the services present in `docker-compose.y
   | `KAFKA_PORT`         | Specify port of the `Kafka` message broker to use (default `29092`)     |
 
 - ### Run Docker containers
+
+  > **Note:** run `json-producer-service` first so that it can create the `Kafka` topics
 
   - **json-producer-service**
 
