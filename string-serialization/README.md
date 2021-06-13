@@ -1,4 +1,4 @@
-# springboot-spring-kafka
+# spring-kafka-de-serialization-types
 ## `> string-serialization`
 
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`
@@ -8,7 +8,7 @@ This sample demonstrates a **producer** that pushes `News` messages to a topic i
 
 ## Start Environment
 
-Before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running as explained at [Start Environment](https://github.com/ivangfr/springboot-spring-kafka#start-environment) section of the main README
+Before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running as explained at [Start Environment](https://github.com/ivangfr/spring-kafka-de-serialization-types#start-environment) section of the main README
 
 ## Running applications using Maven
 
@@ -16,7 +16,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - **string-producer-service**
 
-  - Open a terminal navigate to `springboot-spring-kafka` root folder
+  - Open a terminal navigate to `spring-kafka-de-serialization-types` root folder
   - Run application
     ```
     ./mvnw clean spring-boot:run --projects string-serialization/string-producer-service
@@ -25,7 +25,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - **string-consumer-service**
 
-  - Open another terminal and make sure you are in `springboot-spring-kafka` root folder
+  - Open another terminal and make sure you are in `spring-kafka-de-serialization-types` root folder
   - Run application
     ```
     ./mvnw clean spring-boot:run --projects string-serialization/string-consumer-service
@@ -36,7 +36,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - ### Build Docker images
   
-  - Open a terminal navigate to `springboot-spring-kafka` root folder
+  - Open a terminal navigate to `spring-kafka-de-serialization-types` root folder
   - Run the following script to build the images
     - JVM
       ```
@@ -66,7 +66,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
     ```
     docker run --rm --name string-producer-service -p 9080:9080 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
-      --network=springboot-spring-kafka_default \
+      --network=spring-kafka-de-serialization-types_default \
       ivanfranchin/string-producer-service:1.0.0
     ```
 
@@ -76,7 +76,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
     ```
     docker run --rm --name string-consumer-service -p 9081:9081 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
-      --network=springboot-spring-kafka_default \
+      --network=spring-kafka-de-serialization-types_default \
       ivanfranchin/string-consumer-service:1.0.0
     ```
 

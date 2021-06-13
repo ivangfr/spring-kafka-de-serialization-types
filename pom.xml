@@ -10,10 +10,10 @@
     </parent>
 
     <groupId>com.mycompany</groupId>
-    <artifactId>springboot-spring-kafka</artifactId>
+    <artifactId>spring-kafka-de-serialization-types</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>springboot-spring-kafka</name>
+    <name>spring-kafka-de-serialization-types</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

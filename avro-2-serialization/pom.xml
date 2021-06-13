@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mycompany</groupId>
-        <artifactId>springboot-spring-kafka</artifactId>
+        <artifactId>spring-kafka-de-serialization-types</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>

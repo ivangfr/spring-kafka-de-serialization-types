@@ -1,4 +1,4 @@
-# springboot-spring-kafka
+# spring-kafka-de-serialization-types
 
 The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io/spring-kafka/reference/html/). We've implemented 5 examples of `producer` and `consumer` services that exchanges messages through [`Kafka`](https://kafka.apache.org/) using different types of serialization and approaches.
 
@@ -8,11 +8,11 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 ![project-diagram-samples](images/project-diagram-samples.png)
 
-- ### [string-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/string-serialization#springboot-spring-kafka)
-- ### [json-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/json-serialization#springboot-spring-kafka)
-- ### [avro-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-serialization#springboot-spring-kafka)
-- ### [avro-2-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-2-serialization#springboot-spring-kafka)
-- ### [avro-3-serialization](https://github.com/ivangfr/springboot-spring-kafka/tree/master/avro-3-serialization#springboot-spring-kafka)
+- ### [string-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/string-serialization#spring-kafka-de-serialization-types)
+- ### [json-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/json-serialization#spring-kafka-de-serialization-types)
+- ### [avro-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-serialization#spring-kafka-de-serialization-types)
+- ### [avro-2-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-2-serialization#spring-kafka-de-serialization-types)
+- ### [avro-3-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-3-serialization#spring-kafka-de-serialization-types)
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 ## Start Environment
 
-- Open a terminal and inside `springboot-spring-kafka` root folder run
+- Open a terminal and inside `spring-kafka-de-serialization-types` root folder run
   ```
   docker-compose up -d
   ```
@@ -34,7 +34,7 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 ## Shutdown
 
-- In a terminal, make sure you are in `springboot-spring-kafka` root folder
+- In a terminal, make sure you are in `spring-kafka-de-serialization-types` root folder
 
 - To stop and remove docker-compose containers, network and volumes
   ```
