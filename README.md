@@ -8,11 +8,11 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 ![project-diagram-samples](images/project-diagram-samples.png)
 
-- ### [string-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/string-serialization#spring-kafka-de-serialization-types)
-- ### [json-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/json-serialization#spring-kafka-de-serialization-types)
-- ### [avro-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-serialization#spring-kafka-de-serialization-types)
-- ### [avro-2-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-2-serialization#spring-kafka-de-serialization-types)
-- ### [avro-3-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-3-serialization#spring-kafka-de-serialization-types)
+- ### [string-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/string-de-serialization#spring-kafka-de-serialization-types)
+- ### [json-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/json-de-serialization#spring-kafka-de-serialization-types)
+- ### [avro-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-de-serialization#spring-kafka-de-serialization-types)
+- ### [avro-2-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-2-de-serialization#spring-kafka-de-serialization-types)
+- ### [avro-3-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-3-de-serialization#spring-kafka-de-serialization-types)
 
 ## Prerequisites
 

@@ -24,11 +24,11 @@
     </properties>
 
     <modules>
-        <module>string-serialization</module>
-        <module>json-serialization</module>
-        <module>avro-serialization</module>
-        <module>avro-2-serialization</module>
-        <module>avro-3-serialization</module>
+        <module>string-de-serialization</module>
+        <module>json-de-serialization</module>
+        <module>avro-de-serialization</module>
+        <module>avro-2-de-serialization</module>
+        <module>avro-3-de-serialization</module>
     </modules>
 
     <dependencies>
