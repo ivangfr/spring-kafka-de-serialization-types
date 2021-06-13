@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mycompany</groupId>
-        <artifactId>springboot-spring-kafka</artifactId>
+        <artifactId>avro-serialization</artifactId>
         <version>1.0.0</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>avro-producer-service</artifactId>
@@ -14,8 +14,6 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <avro.version>1.10.2</avro.version>
-        <jakarta-xml-bind-api.version>2.3.3</jakarta-xml-bind-api.version>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
     </properties>
@@ -34,20 +32,6 @@
             <artifactId>spring-kafka</artifactId>
         </dependency>
 
-        <!-- Avro -->
-        <dependency>
-            <groupId>org.apache.avro</groupId>
-            <artifactId>avro</artifactId>
-            <version>${avro.version}</version>
-        </dependency>
-
-        <!-- Jakarta XML bind-api -->
-        <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>${jakarta-xml-bind-api.version}</version>
-        </dependency>
-
         <!-- MapStruct -->
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -55,11 +39,6 @@
             <version>${org.mapstruct.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -74,18 +53,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -108,23 +75,6 @@
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.avro</groupId>
-                <artifactId>avro-maven-plugin</artifactId>
-                <version>${avro.version}</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>schema</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
-                            <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

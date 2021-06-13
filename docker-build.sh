@@ -18,7 +18,7 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects string-serialization/string-producer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects string-serialization/string-producer-service
+    ./mvnw clean compile jib:dockerBuild --projects string-serialization/string-producer-service
   fi
 fi
 
@@ -36,7 +36,7 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects string-serialization/string-consumer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects string-serialization/string-consumer-service
+    ./mvnw clean compile jib:dockerBuild --projects string-serialization/string-consumer-service
   fi
 fi
 
@@ -54,7 +54,7 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects json-serialization/json-producer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects json-serialization/json-producer-service
+    ./mvnw clean compile jib:dockerBuild --projects json-serialization/json-producer-service
   fi
 fi
 
@@ -72,7 +72,7 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects json-serialization/json-consumer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects json-serialization/json-consumer-service
+    ./mvnw clean compile jib:dockerBuild --projects json-serialization/json-consumer-service
   fi
 fi
 
@@ -90,7 +90,7 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects avro-serialization/avro-producer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects avro-serialization/avro-producer-service
+    ./mvnw clean compile jib:dockerBuild --projects avro-serialization/avro-producer-service
   fi
 fi
 
@@ -108,7 +108,7 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects avro-serialization/avro-consumer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects avro-serialization/avro-consumer-service
+    ./mvnw clean compile jib:dockerBuild --projects avro-serialization/avro-consumer-service
   fi
 fi
 
@@ -126,7 +126,7 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects avro-2-serialization/avro-2-producer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects avro-2-serialization/avro-2-producer-service
+    ./mvnw clean compile jib:dockerBuild --projects avro-2-serialization/avro-2-producer-service
   fi
 fi
 
@@ -144,7 +144,7 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects avro-2-serialization/avro-2-consumer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects avro-2-serialization/avro-2-consumer-service
+    ./mvnw clean compile jib:dockerBuild --projects avro-2-serialization/avro-2-consumer-service
   fi
 fi
 
@@ -162,7 +162,7 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects avro-3-serialization/avro-3-producer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects avro-3-serialization/avro-3-producer-service
+    ./mvnw clean compile jib:dockerBuild --projects avro-3-serialization/avro-3-producer-service
   fi
 fi
 
@@ -180,6 +180,6 @@ then
   then
     ./mvnw clean spring-boot:build-image --projects avro-3-serialization/avro-3-consumer-service
   else
-    ./mvnw clean package jib:dockerBuild --projects avro-3-serialization/avro-3-consumer-service
+    ./mvnw clean compile jib:dockerBuild --projects avro-3-serialization/avro-3-consumer-service
   fi
 fi

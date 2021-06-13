@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.5</version>
+        <version>2.5.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -13,28 +13,22 @@
     <artifactId>springboot-spring-kafka</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-
     <name>springboot-spring-kafka</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>11</java.version>
-        <spring-native.version>0.9.2</spring-native.version>
-        <jib-maven-plugin.version>3.0.0</jib-maven-plugin.version>
-        <docker-image.prefix>docker.mycompany.com</docker-image.prefix>
+        <spring-native.version>0.10.0-SNAPSHOT</spring-native.version>
+        <jib-maven-plugin.version>3.1.1</jib-maven-plugin.version>
+        <docker-image.prefix>ivanfranchin</docker-image.prefix>
     </properties>
 
     <modules>
-        <module>string-serialization/string-producer-service</module>
-        <module>string-serialization/string-consumer-service</module>
-        <module>json-serialization/json-producer-service</module>
-        <module>json-serialization/json-consumer-service</module>
-        <module>avro-serialization/avro-producer-service</module>
-        <module>avro-serialization/avro-consumer-service</module>
-        <module>avro-2-serialization/avro-2-producer-service</module>
-        <module>avro-2-serialization/avro-2-consumer-service</module>
-        <module>avro-3-serialization/avro-3-producer-service</module>
-        <module>avro-3-serialization/avro-3-consumer-service</module>
+        <module>string-serialization</module>
+        <module>json-serialization</module>
+        <module>avro-serialization</module>
+        <module>avro-2-serialization</module>
+        <module>avro-3-serialization</module>
     </modules>
 
     <dependencies>
@@ -45,79 +39,22 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <image>
-                        <builder>paketobuildpacks/builder:tiny</builder>
-                        <name>${docker-image.prefix}/${project.artifactId}:${project.version}</name>
-                        <env>
-                            <BP_BOOT_NATIVE_IMAGE>true</BP_BOOT_NATIVE_IMAGE>
-                            <BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>
-                                -Dspring.native.remove-yaml-support=true
-                                --enable-url-protocols=http <!-- needed for avro-2- and avro-3-serialization -->
-                            </BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>
-                        </env>
-                    </image>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.experimental</groupId>
-                <artifactId>spring-aot-maven-plugin</artifactId>
-                <version>${spring-native.version}</version>
-                <executions>
-                    <execution>
-                        <id>test-generate</id>
-                        <goals>
-                            <goal>test-generate</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>generate</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <removeYamlSupport>true</removeYamlSupport>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.google.cloud.tools</groupId>
-                <artifactId>jib-maven-plugin</artifactId>
-                <version>${jib-maven-plugin.version}</version>
-                <configuration>
-                    <to>
-                        <image>${docker-image.prefix}/${project.artifactId}:${project.version}</image>
-                    </to>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
     <repositories>
         <repository>
-            <id>spring-releases</id>
-            <name>Spring Releases</name>
-            <url>https://repo.spring.io/release</url>
-            <snapshots>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
                 <enabled>false</enabled>
-            </snapshots>
+            </releases>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <id>spring-releases</id>
-            <name>Spring Releases</name>
-            <url>https://repo.spring.io/release</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
         </pluginRepository>
     </pluginRepositories>
 

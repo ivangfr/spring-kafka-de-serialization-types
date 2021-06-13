@@ -32,12 +32,10 @@ public class NewsConsumerConfig {
         return factory;
     }
 
-    @Bean
     ConsumerFactory<String, NewsMessage> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
 
-    @Bean
     Map<String, Object> consumerConfigs() {
         Map<String, Object> props = kafkaProperties.buildConsumerProperties();
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);

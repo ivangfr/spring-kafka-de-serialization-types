@@ -19,7 +19,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
   - Open a terminal navigate to `springboot-spring-kafka` root folder
   - Run application
     ```
-    ./mvnw clean package spring-boot:run --projects json-serialization/json-producer-service -DskipTests
+    ./mvnw clean spring-boot:run --projects json-serialization/json-producer-service
     ```
   - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `json-serialization-news`. The default `delay` between messages is `3 seconds`.
 
@@ -28,7 +28,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
   - Open another terminal and make sure you are in `springboot-spring-kafka` root folder
   - Run application
     ```
-    ./mvnw clean package spring-boot:run --projects json-serialization/json-consumer-service -DskipTests
+    ./mvnw clean spring-boot:run --projects json-serialization/json-consumer-service
     ```
   - Once the consumer is up and running, it will start listening `News` messages from the `Kafka` topic `json-serialization-news`
 
@@ -67,7 +67,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
     docker run --rm --name json-producer-service -p 9082:9082 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
       --network=springboot-spring-kafka_default \
-      docker.mycompany.com/json-producer-service:1.0.0
+      ivanfranchin/json-producer-service:1.0.0
     ```
 
   - **json-consumer-service**
@@ -77,7 +77,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
     docker run --rm --name json-consumer-service -p 9083:9083 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
       --network=springboot-spring-kafka_default \
-      docker.mycompany.com/json-consumer-service:1.0.0
+      ivanfranchin/json-consumer-service:1.0.0
     ```
 
 ## Shutdown

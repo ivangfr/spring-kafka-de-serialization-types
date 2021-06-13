@@ -19,7 +19,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
   - Open a terminal navigate to `springboot-spring-kafka` root folder
   - Run application
     ```
-    ./mvnw clean package spring-boot:run --projects string-serialization/string-producer-service -DskipTests
+    ./mvnw clean spring-boot:run --projects string-serialization/string-producer-service
     ```
   - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `string-serialization-news`. The default `delay` between messages is `3 seconds`.
 
@@ -28,7 +28,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
   - Open another terminal and make sure you are in `springboot-spring-kafka` root folder
   - Run application
     ```
-    ./mvnw clean package spring-boot:run --projects string-serialization/string-consumer-service -DskipTests
+    ./mvnw clean spring-boot:run --projects string-serialization/string-consumer-service
     ```
   - Once the consumer is up and running, it will start listening `News` messages from the `Kafka` topic `string-serialization-news`
 
@@ -67,7 +67,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
     docker run --rm --name string-producer-service -p 9080:9080 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
       --network=springboot-spring-kafka_default \
-      docker.mycompany.com/string-producer-service:1.0.0
+      ivanfranchin/string-producer-service:1.0.0
     ```
 
   - **string-consumer-service**
@@ -77,7 +77,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
     docker run --rm --name string-consumer-service -p 9081:9081 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
       --network=springboot-spring-kafka_default \
-      docker.mycompany.com/string-consumer-service:1.0.0
+      ivanfranchin/string-consumer-service:1.0.0
     ```
 
 ## Shutdown
