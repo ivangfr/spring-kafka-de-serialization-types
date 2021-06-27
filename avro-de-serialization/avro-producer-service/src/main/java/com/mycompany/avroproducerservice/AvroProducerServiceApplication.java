@@ -9,9 +9,8 @@ import org.springframework.nativex.hint.TypeHint;
 @SpringBootApplication
 public class AvroProducerServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AvroProducerServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AvroProducerServiceApplication.class, args);
+    }
 
 }
-

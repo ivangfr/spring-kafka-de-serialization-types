@@ -32,15 +32,6 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
   docker-compose ps
   ```
 
-## Shutdown
-
-- In a terminal, make sure you are in `spring-kafka-de-serialization-types` root folder
-
-- To stop and remove docker-compose containers, network and volumes
-  ```
-  docker-compose down -v
-  ```
-
 ## Useful Links
 
 - **Schema Registry UI**
@@ -61,6 +52,20 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
   - Type `zookeeper:2181`in `Cluster Zookeeper Hosts` field
   - Enable checkbox `Poll consumer information (Not recommended for large # of consumers if ZK is used for offsets tracking on older Kafka versions)`
   - Click on `Save` button at the bottom of the page.
+
+## Shutdown
+
+To stop and remove docker-compose containers, network and volumes, go to a terminal and, inside `spring-kafka-de-serialization-types` root folder, run the command below
+```
+docker-compose down -v
+```
+
+## Cleanup
+
+To remove the Docker created by this project, go to a terminal and, inside `spring-kafka-de-serialization-types` root folder, run the following script
+```
+./remove-docker-images.sh all
+```
 
 ## References
 

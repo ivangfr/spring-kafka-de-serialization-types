@@ -58,45 +58,6 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
-                    <image>
-                        <builder>paketobuildpacks/builder:tiny</builder>
-                        <name>${docker-image.prefix}/${project.artifactId}:${project.version}</name>
-                        <env>
-                            <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
-                        </env>
-                    </image>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.experimental</groupId>
-                <artifactId>spring-aot-maven-plugin</artifactId>
-                <version>${spring-native.version}</version>
-                <executions>
-                    <execution>
-                        <id>test-generate</id>
-                        <goals>
-                            <goal>test-generate</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>generate</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <removeYamlSupport>true</removeYamlSupport>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.google.cloud.tools</groupId>
-                <artifactId>jib-maven-plugin</artifactId>
-                <version>${jib-maven-plugin.version}</version>
-                <configuration>
-                    <to>
-                        <image>${docker-image.prefix}/${project.artifactId}:${project.version}</image>
-                    </to>
                 </configuration>
             </plugin>
             <plugin>

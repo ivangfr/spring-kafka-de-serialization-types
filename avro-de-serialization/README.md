@@ -9,7 +9,7 @@ This sample demonstrates a **producer** that pushes `News` messages to a topic i
 
 ## Start Environment
 
-Before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running as explained at [Start Environment](https://github.com/ivangfr/spring-kafka-de-serialization-types#start-environment) section of the main README
+Before starting producer and consumer, the services present in `docker-compose.yml` file must be up and running as explained in [Start Environment](https://github.com/ivangfr/spring-kafka-de-serialization-types#start-environment) section of the main README
 
 ## Running applications using Maven
 
@@ -91,4 +91,12 @@ Before starting producer and consumer, the services present in `docker-compose.y
   
 ## Shutdown
 
-Go to the terminals where the applications are running and press `Ctrl+C`
+- Go to the terminals where the applications are running and press `Ctrl+C`
+- Stop the services present in `docker-compose.yml` as explained in [Shutdown](https://github.com/ivangfr/spring-kafka-de-serialization-types#shutdown) section of the main README
+
+## Cleanup
+
+To remove the Docker images created by this example, go to a terminal and, inside `spring-kafka-de-serialization-types` root folder, run the following script
+```
+./remove-docker-images.sh avro-de-serialization
+```
