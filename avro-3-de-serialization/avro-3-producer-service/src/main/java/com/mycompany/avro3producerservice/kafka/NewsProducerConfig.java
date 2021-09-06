@@ -56,5 +56,4 @@ public class NewsProducerConfig {
         Map<String, String> producerProperties = kafkaProperties.getProducer().getProperties();
         return new NewTopic(producerProperties.get("topic"), Integer.parseInt(producerProperties.get("num-partitions")), (short) 1);
     }
-
 }

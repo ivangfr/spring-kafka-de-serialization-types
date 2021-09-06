@@ -1,6 +1,6 @@
 package com.mycompany.jsonproducerservice.kafka;
 
-import com.mycompany.jsonproducerservice.domain.News;
+import com.mycompany.jsonproducerservice.kafka.event.News;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
@@ -20,5 +20,4 @@ public class NewsProducer {
         log.info("Sending News '{}' to topic '{}'", news, kafkaTopic);
         kafkaTemplate.send(kafkaTopic, news.getId(), news);
     }
-
 }

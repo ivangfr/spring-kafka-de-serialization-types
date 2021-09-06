@@ -1,5 +1,6 @@
 package com.mycompany.avroconsumerservice.kafka;
 
+import jakarta.xml.bind.DatatypeConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.io.DatumReader;
@@ -10,7 +11,6 @@ import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;
 
-import javax.xml.bind.DatatypeConverter;
 import java.util.Arrays;
 import java.util.Map;
 

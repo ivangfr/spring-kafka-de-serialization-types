@@ -1,6 +1,5 @@
 package com.mycompany.jsonconsumerservice.kafka;
 
-import com.mycompany.jsonconsumerservice.domain.News;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

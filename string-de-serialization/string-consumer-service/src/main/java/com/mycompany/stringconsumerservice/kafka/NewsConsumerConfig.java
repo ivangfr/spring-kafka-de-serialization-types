@@ -39,5 +39,4 @@ public class NewsConsumerConfig {
         props.put(ConsumerConfig.ALLOW_AUTO_CREATE_TOPICS_CONFIG, false);
         return props;
     }
-
 }

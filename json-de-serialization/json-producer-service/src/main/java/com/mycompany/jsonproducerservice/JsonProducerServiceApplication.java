@@ -1,6 +1,6 @@
 package com.mycompany.jsonproducerservice;
 
-import com.mycompany.jsonproducerservice.domain.News;
+import com.mycompany.jsonproducerservice.kafka.event.News;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.nativex.hint.TypeHint;

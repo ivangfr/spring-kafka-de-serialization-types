@@ -20,5 +20,4 @@ public class NewsProducer {
         log.info("Sending News '{}' to topic '{}'", newsMessage, kafkaTopic);
         kafkaTemplate.send(kafkaTopic, String.valueOf(newsMessage.getFromId()), newsMessage);
     }
-
 }

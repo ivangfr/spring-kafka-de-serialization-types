@@ -46,5 +46,4 @@ public class NewsConsumerConfig {
         props.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);
         return props;
     }
-
 }

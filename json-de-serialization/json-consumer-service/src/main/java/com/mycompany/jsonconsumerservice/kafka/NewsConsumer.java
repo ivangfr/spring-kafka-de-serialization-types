@@ -1,6 +1,5 @@
 package com.mycompany.jsonconsumerservice.kafka;
 
-import com.mycompany.jsonconsumerservice.domain.News;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.listener.adapter.ConsumerRecordMetadata;

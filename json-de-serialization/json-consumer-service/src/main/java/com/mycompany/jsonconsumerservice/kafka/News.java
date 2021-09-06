@@ -1,4 +1,4 @@
-package com.mycompany.avro2producerservice.domain;
+package com.mycompany.jsonconsumerservice.kafka;
 
 import lombok.Data;
 
@@ -9,5 +9,4 @@ public class News {
     private Integer fromId;
     private String fromName;
     private String title;
-
 }

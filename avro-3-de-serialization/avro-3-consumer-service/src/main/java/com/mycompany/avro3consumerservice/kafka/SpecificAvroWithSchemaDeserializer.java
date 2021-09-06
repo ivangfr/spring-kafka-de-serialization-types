@@ -62,5 +62,4 @@ public class SpecificAvroWithSchemaDeserializer extends AbstractKafkaAvroDeseria
                     String.format("Unable to get Avro Schema from the class '%s'", targetType.getName()), e);
         }
     }
-
 }

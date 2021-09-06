@@ -46,5 +46,4 @@ public class NewsConsumerConfig {
         props.put(SpecificAvroWithSchemaDeserializer.AVRO_VALUE_RECORD_TYPE, NewsMessage.class);
         return props;
     }
-
 }

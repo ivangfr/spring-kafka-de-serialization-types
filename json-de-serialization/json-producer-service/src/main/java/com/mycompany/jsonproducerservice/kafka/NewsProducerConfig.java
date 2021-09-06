@@ -1,6 +1,6 @@
 package com.mycompany.jsonproducerservice.kafka;
 
-import com.mycompany.jsonproducerservice.domain.News;
+import com.mycompany.jsonproducerservice.kafka.event.News;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -55,5 +55,4 @@ public class NewsProducerConfig {
         Map<String, String> producerProperties = kafkaProperties.getProducer().getProperties();
         return new NewTopic(producerProperties.get("topic"), Integer.parseInt(producerProperties.get("num-partitions")), (short) 1);
     }
-
 }

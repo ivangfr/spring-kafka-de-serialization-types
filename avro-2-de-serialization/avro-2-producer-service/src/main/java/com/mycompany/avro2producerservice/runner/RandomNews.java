@@ -1,6 +1,6 @@
 package com.mycompany.avro2producerservice.runner;
 
-import com.mycompany.avro2producerservice.domain.News;
+import com.mycompany.avro2producerservice.kafka.event.News;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -12,13 +12,12 @@ import java.util.UUID;
 public class RandomNews {
 
     public News generate() {
-        News news = new News();
-        news.setId(UUID.randomUUID().toString());
+        String id = UUID.randomUUID().toString();
         int mediaId = random.nextInt(medias.size());
-        news.setFromId(mediaId + 1);
-        news.setFromName(medias.get(mediaId));
-        news.setTitle(titles.get(random.nextInt(titles.size())));
-        return news;
+        int fromId = mediaId + 1;
+        String fromName = medias.get(mediaId);
+        String title = titles.get(random.nextInt(titles.size()));
+        return News.of(id, fromId, fromName, title);
     }
 
     private static final Random random = new Random();
@@ -37,5 +36,4 @@ public class RandomNews {
             "Controversial doctor joins Trump team",
             "Snowstorm halts ski World Cup",
             "Pope makes first papal visit to Arab Gulf state");
-
 }
