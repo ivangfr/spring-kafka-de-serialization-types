@@ -1,6 +1,6 @@
 package com.mycompany.jsonconsumerservice;
 
-import com.mycompany.jsonconsumerservice.kafka.News;
+import com.mycompany.jsonconsumerservice.kafka.event.News;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.nativex.hint.TypeHint;

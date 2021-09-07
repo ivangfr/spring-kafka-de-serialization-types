@@ -1,5 +1,6 @@
 package com.mycompany.jsonconsumerservice.kafka;
 
+import com.mycompany.jsonconsumerservice.kafka.event.News;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.listener.adapter.ConsumerRecordMetadata;
@@ -20,7 +21,7 @@ public class NewsConsumer {
 //                       @Header(KafkaHeaders.OFFSET) Long offset) {
     //--
     public void listen(@Payload News news, ConsumerRecordMetadata metadata) {
-        log.info("Received message\n---\nTOPIC: {}; PARTITION: {}; OFFSET: {};\nPAYLOAD: {}\n---", metadata.topic(), metadata.partition(), metadata.offset(), news);
+        log.info("Received message\n---\nTOPIC: {}; PARTITION: {}; OFFSET: {};\nPAYLOAD: {}\n---",
+                metadata.topic(), metadata.partition(), metadata.offset(), news);
     }
-
 }

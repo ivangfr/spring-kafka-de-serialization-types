@@ -21,6 +21,7 @@ public class NewsConsumer {
 //                       @Header(KafkaHeaders.OFFSET) Long offset) {
     //--
     public void listen(@Payload NewsMessage newsMessage, ConsumerRecordMetadata metadata) {
-        log.info("Received message\n---\nTOPIC: {}; PARTITION: {}; OFFSET: {};\nPAYLOAD: {}\n---", metadata.topic(), metadata.partition(), metadata.offset(), newsMessage);
+        log.info("Received message\n---\nTOPIC: {}; PARTITION: {}; OFFSET: {};\nPAYLOAD: {}\n---",
+                metadata.topic(), metadata.partition(), metadata.offset(), newsMessage);
     }
 }

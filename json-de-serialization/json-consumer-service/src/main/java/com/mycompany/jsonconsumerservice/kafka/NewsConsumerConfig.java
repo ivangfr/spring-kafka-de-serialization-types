@@ -1,5 +1,6 @@
 package com.mycompany.jsonconsumerservice.kafka;
 
+import com.mycompany.jsonconsumerservice.kafka.event.News;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -40,5 +41,4 @@ public class NewsConsumerConfig {
         props.put(ConsumerConfig.ALLOW_AUTO_CREATE_TOPICS_CONFIG, false);
         return props;
     }
-
 }
