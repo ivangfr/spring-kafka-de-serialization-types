@@ -11,5 +11,4 @@ public class Avro2ProducerServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(Avro2ProducerServiceApplication.class, args);
     }
-
 }

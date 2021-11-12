@@ -6,7 +6,7 @@ The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io
 
 The following examples demonstrate a **producer** that pushes _"News"_ messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`.
 
-![project-diagram-samples](images/project-diagram-samples.png)
+![project-diagram-samples](documentation/project-diagram-samples.png)
 
 - ### [string-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/string-de-serialization#spring-kafka-de-serialization-types)
 - ### [json-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/json-de-serialization#spring-kafka-de-serialization-types)
@@ -16,7 +16,7 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 ## Prerequisites
 
-- [`Java 11+`](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+- [`Java 11+`](https://www.oracle.com/java/technologies/downloads/#java11)
 - [`Docker`](https://www.docker.com/)
 - [`Docker-Compose`](https://docs.docker.com/compose/install/)
 
@@ -27,7 +27,7 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
   docker-compose up -d
   ```
 
-- Wait until all containers are `running (healthy)`. To check the status of the containers run
+- Wait for Docker containers to be up and running. To check it, run
   ```
   docker-compose ps
   ```

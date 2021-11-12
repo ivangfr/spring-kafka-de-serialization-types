@@ -9,5 +9,4 @@ public class AvroConsumerServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(AvroConsumerServiceApplication.class, args);
     }
-
 }

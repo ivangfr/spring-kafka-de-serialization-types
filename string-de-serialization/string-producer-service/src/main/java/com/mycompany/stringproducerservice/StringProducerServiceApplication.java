@@ -9,5 +9,4 @@ public class StringProducerServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(StringProducerServiceApplication.class, args);
     }
-
 }

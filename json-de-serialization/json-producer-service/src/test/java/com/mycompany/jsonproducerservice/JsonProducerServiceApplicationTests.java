@@ -11,6 +11,5 @@ class JsonProducerServiceApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
 

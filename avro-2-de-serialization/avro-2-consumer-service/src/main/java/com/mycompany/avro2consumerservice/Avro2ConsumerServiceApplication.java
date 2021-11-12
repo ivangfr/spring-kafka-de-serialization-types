@@ -11,5 +11,4 @@ public class Avro2ConsumerServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(Avro2ConsumerServiceApplication.class, args);
     }
-
 }

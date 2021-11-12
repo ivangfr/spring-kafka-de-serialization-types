@@ -11,6 +11,5 @@ class JsonConsumerServiceApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
 

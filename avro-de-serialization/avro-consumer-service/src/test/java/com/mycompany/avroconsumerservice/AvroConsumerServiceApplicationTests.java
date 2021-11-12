@@ -11,6 +11,5 @@ class AvroConsumerServiceApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
 

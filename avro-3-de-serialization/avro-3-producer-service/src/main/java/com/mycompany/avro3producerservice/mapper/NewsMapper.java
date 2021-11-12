@@ -8,5 +8,4 @@ import org.mapstruct.Mapper;
 public interface NewsMapper {
 
     NewsMessage toNewsMessage(News news);
-
 }

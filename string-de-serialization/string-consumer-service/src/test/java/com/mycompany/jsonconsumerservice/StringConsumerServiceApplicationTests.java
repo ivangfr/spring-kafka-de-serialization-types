@@ -11,6 +11,5 @@ class StringConsumerServiceApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
 

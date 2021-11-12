@@ -7,16 +7,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.nativex.hint.NativeHint;
 import org.springframework.nativex.hint.TypeHint;
 
-@TypeHint(types = {
-        SpecificAvroWithSchemaDeserializer.class,
-        NewsMessage.class
-})
-@NativeHint(options = "--enable-url-protocols=http")
+@NativeHint(
+        options = "--enable-url-protocols=http",
+        types = @TypeHint(
+                types = {
+                        SpecificAvroWithSchemaDeserializer.class,
+                        NewsMessage.class
+                }
+        )
+)
 @SpringBootApplication
 public class Avro3ConsumerServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(Avro3ConsumerServiceApplication.class, args);
     }
-
 }

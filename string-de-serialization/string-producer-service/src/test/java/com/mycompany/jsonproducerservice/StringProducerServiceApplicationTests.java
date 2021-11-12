@@ -11,6 +11,5 @@ class StringProducerServiceApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
 
