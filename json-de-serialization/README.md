@@ -52,7 +52,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
   **json-producer-service** and **json-consumer-service**
 
   | Environment Variable | Description                                                             |
-  | -------------------- | ----------------------------------------------------------------------- |
+  |----------------------|-------------------------------------------------------------------------|
   | `KAFKA_HOST`         | Specify host of the `Kafka` message broker to use (default `localhost`) |
   | `KAFKA_PORT`         | Specify port of the `Kafka` message broker to use (default `29092`)     |
 
@@ -90,4 +90,43 @@ Before starting producer and consumer, the services present in `docker-compose.y
 To remove the Docker images created by this example, go to a terminal and, inside `spring-kafka-de-serialization-types` root folder, run the following script
 ```
 ./remove-docker-images.sh json-de-serialization
+```
+
+## Issues
+
+`json-producer-service`: The following exception is thrown when sending a message
+```
+ERROR 1 --- [           main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:770) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.6.2]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:751) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:309) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.6.2]
+	at com.mycompany.jsonproducerservice.JsonProducerServiceApplication.main(JsonProducerServiceApplication.java:15) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:na]
+Caused by: org.apache.kafka.common.errors.SerializationException: Can't serialize data [News(id=23ffee2f-c633-45fa-91f7-04e542ccc2d6, fromId=1, fromName=CNN, title=Jaguar Land Rover is slashing 4,500 jobs)] for topic [json-de-serialization-news]
+	at org.springframework.kafka.support.serializer.JsonSerializer.serialize(JsonSerializer.java:216) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.8.1]
+	at org.springframework.kafka.support.serializer.JsonSerializer.serialize(JsonSerializer.java:203) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.8.1]
+	at org.apache.kafka.clients.producer.KafkaProducer.doSend(KafkaProducer.java:929) ~[na:na]
+	at org.apache.kafka.clients.producer.KafkaProducer.send(KafkaProducer.java:889) ~[na:na]
+	at org.springframework.kafka.core.DefaultKafkaProducerFactory$CloseSafeProducer.send(DefaultKafkaProducerFactory.java:984) ~[na:na]
+	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:649) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.8.1]
+	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:409) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.8.1]
+	at com.mycompany.jsonproducerservice.kafka.NewsProducer.send(NewsProducer.java:21) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:na]
+	at com.mycompany.jsonproducerservice.runner.SimulationRunner.run(SimulationRunner.java:22) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:767) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.6.2]
+	... 5 common frames omitted
+Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.mycompany.jsonproducerservice.kafka.event.News and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS)
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1300) ~[na:na]
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:400) ~[na:na]
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:46) ~[na:na]
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:29) ~[na:na]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480) ~[na:na]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319) ~[na:na]
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518) ~[na:na]
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1219) ~[na:na]
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsBytes(ObjectWriter.java:1109) ~[na:na]
+	at org.springframework.kafka.support.serializer.JsonSerializer.serialize(JsonSerializer.java:213) ~[com.mycompany.jsonproducerservice.JsonProducerServiceApplication:2.8.1]
+	... 14 common frames omitted
 ```

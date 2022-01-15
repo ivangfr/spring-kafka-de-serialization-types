@@ -2,6 +2,7 @@ package com.mycompany.avro3consumerservice;
 
 import com.mycompany.avro3consumerservice.avro.NewsMessage;
 import com.mycompany.avro3consumerservice.kafka.SpecificAvroWithSchemaDeserializer;
+import io.confluent.kafka.serializers.context.NullContextNameStrategy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.nativex.hint.NativeHint;
@@ -12,7 +13,8 @@ import org.springframework.nativex.hint.TypeHint;
         types = @TypeHint(
                 types = {
                         SpecificAvroWithSchemaDeserializer.class,
-                        NewsMessage.class
+                        NewsMessage.class,
+                        NullContextNameStrategy.class
                 }
         )
 )

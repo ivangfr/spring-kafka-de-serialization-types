@@ -29,15 +29,12 @@ public class NewsConsumerConfig {
         return factory;
     }
 
+    @Bean
     ConsumerFactory<String, NewsMessage> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(), new AvroDeserializer<>(NewsMessage.class));
-    }
-
-    Map<String, Object> consumerConfigs() {
         Map<String, Object> props = kafkaProperties.buildConsumerProperties();
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, AvroDeserializer.class);
         props.put(ConsumerConfig.ALLOW_AUTO_CREATE_TOPICS_CONFIG, false);
-        return props;
+        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new AvroDeserializer<>(NewsMessage.class));
     }
 }

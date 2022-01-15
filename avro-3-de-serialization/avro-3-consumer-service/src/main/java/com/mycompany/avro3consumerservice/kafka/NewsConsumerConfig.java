@@ -31,11 +31,8 @@ public class NewsConsumerConfig {
         return factory;
     }
 
+    @Bean
     ConsumerFactory<String, NewsMessage> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs());
-    }
-
-    Map<String, Object> consumerConfigs() {
         Map<String, Object> props = kafkaProperties.buildConsumerProperties();
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, SpecificAvroWithSchemaDeserializer.class);
@@ -44,6 +41,6 @@ public class NewsConsumerConfig {
         props.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, kafkaProperties.getProperties().get("schema-registry-url"));
         props.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);
         props.put(SpecificAvroWithSchemaDeserializer.AVRO_VALUE_RECORD_TYPE, NewsMessage.class);
-        return props;
+        return new DefaultKafkaConsumerFactory<>(props);
     }
 }

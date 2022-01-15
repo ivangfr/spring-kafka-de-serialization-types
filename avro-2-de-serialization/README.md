@@ -62,7 +62,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
   **avro-2-producer-service** and **avro-2-consumer-service**
 
   | Environment Variable   | Description                                                             |
-  | ---------------------- | ----------------------------------------------------------------------- |
+  |------------------------|-------------------------------------------------------------------------|
   | `KAFKA_HOST`           | Specify host of the `Kafka` message broker to use (default `localhost`) |
   | `KAFKA_PORT`           | Specify port of the `Kafka` message broker to use (default `29092`)     |
   | `SCHEMA_REGISTRY_HOST` | Specify host of the `Schema Registry` to use (default `localhost`)      |
