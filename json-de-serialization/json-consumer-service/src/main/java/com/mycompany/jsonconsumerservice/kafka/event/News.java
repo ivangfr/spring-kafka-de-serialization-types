@@ -1,12 +1,8 @@
 package com.mycompany.jsonconsumerservice.kafka.event;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@ToString
-@EqualsAndHashCode
+@Data
 public class News {
 
     private String id;
