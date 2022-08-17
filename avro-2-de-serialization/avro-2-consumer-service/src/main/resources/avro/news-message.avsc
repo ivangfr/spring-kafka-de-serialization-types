@@ -1,5 +1,5 @@
 {
-  "namespace": "com.mycompany.commons.avroserialization.avro",
+  "namespace": "com.ivanfranchin.commons.avroserialization.avro",
   "type": "record",
   "name": "NewsMessage",
   "fields": [

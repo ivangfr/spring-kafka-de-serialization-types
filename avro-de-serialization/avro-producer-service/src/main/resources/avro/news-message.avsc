@@ -1,5 +1,5 @@
 {
-  "namespace": "com.mycompany.avroproducerservice.avro",
+  "namespace": "com.ivanfranchin.avroproducerservice.avro",
   "type": "record",
   "name": "NewsMessage",
   "fields": [
