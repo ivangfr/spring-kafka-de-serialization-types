@@ -17,7 +17,7 @@ public class RandomNews {
         int fromId = mediaId + 1;
         String fromName = medias.get(mediaId);
         String title = titles.get(random.nextInt(titles.size()));
-        return News.of(id, fromId, fromName, title);
+        return new News(id, fromId, fromName, title);
     }
 
     private static final Random random = new Random();

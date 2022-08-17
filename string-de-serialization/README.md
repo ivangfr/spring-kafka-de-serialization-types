@@ -12,7 +12,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 ## Running applications using Maven
 
-> **Note:** run `string-producer-service` first so that it can create the `Kafka` topics
+> **Note**: run `string-producer-service` first so that it can create the `Kafka` topics
 
 - **string-producer-service**
 
@@ -58,7 +58,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - ### Run Docker containers
 
-  > **Note:** run `string-producer-service` first so that it can create the `Kafka` topics
+  > **Note**: run `string-producer-service` first so that it can create the `Kafka` topics
 
   - **string-producer-service**
     

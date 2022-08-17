@@ -2,21 +2,25 @@ package com.mycompany.avroproducerservice.runner;
 
 import com.mycompany.avroproducerservice.kafka.NewsProducer;
 import com.mycompany.avroproducerservice.mapper.NewsMapper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-@RequiredArgsConstructor
 @Component
 public class SimulationRunner implements CommandLineRunner {
-
-    @Value("${simulation.sleep}")
-    private Integer sleep;
 
     private final NewsProducer newsProducer;
     private final NewsMapper newsMapper;
     private final RandomNews randomNews;
+
+    public SimulationRunner(NewsProducer newsProducer, NewsMapper newsMapper, RandomNews randomNews) {
+        this.newsProducer = newsProducer;
+        this.newsMapper = newsMapper;
+        this.randomNews = randomNews;
+    }
+
+    @Value("${simulation.sleep}")
+    private Integer sleep;
 
     @Override
     public void run(String... args) throws InterruptedException {

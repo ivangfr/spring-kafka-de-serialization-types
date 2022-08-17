@@ -14,7 +14,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 ## Running applications using Maven
 
-> **Note:** run `avro-2-producer-service` first so that it can create the `Kafka` topics
+> **Note**: run `avro-2-producer-service` first so that it can create the `Kafka` topics
 
 - **avro-2-producer-service**
 
@@ -70,7 +70,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - ### Run Docker containers
 
-  > **Note:** run `avro-2-producer-service` first so that it can create the `Kafka` topics
+  > **Note**: run `avro-2-producer-service` first so that it can create the `Kafka` topics
 
   - **avro-2-producer-service**
 

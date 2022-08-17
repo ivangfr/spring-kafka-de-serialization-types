@@ -1,7 +1,6 @@
 package com.mycompany.avroconsumerservice.kafka;
 
 import com.mycompany.avroconsumerservice.avro.NewsMessage;
-import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
@@ -14,15 +13,18 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 
 import java.util.Map;
 
-@RequiredArgsConstructor
 @EnableKafka
 @Configuration
 public class NewsConsumerConfig {
 
     private final KafkaProperties kafkaProperties;
 
+    public NewsConsumerConfig(KafkaProperties kafkaProperties) {
+        this.kafkaProperties = kafkaProperties;
+    }
+
     @Bean
-    ConcurrentKafkaListenerContainerFactory<String, NewsMessage> kafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, NewsMessage> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, NewsMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.setConcurrency(kafkaProperties.getListener().getConcurrency());
@@ -30,7 +32,7 @@ public class NewsConsumerConfig {
     }
 
     @Bean
-    ConsumerFactory<String, NewsMessage> consumerFactory() {
+    public ConsumerFactory<String, NewsMessage> consumerFactory() {
         Map<String, Object> props = kafkaProperties.buildConsumerProperties();
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, AvroDeserializer.class);

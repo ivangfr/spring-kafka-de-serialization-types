@@ -1,17 +1,20 @@
 package com.mycompany.avro3consumerservice.kafka;
 
 import com.mycompany.avro3consumerservice.avro.NewsMessage;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.listener.adapter.ConsumerRecordMetadata;
-//import org.springframework.kafka.support.KafkaHeaders;
-//import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
-@Slf4j
+//import org.springframework.kafka.support.KafkaHeaders;
+//import org.springframework.messaging.handler.annotation.Header;
+
 @Service
 public class NewsConsumer {
+
+    private static final Logger log = LoggerFactory.getLogger(NewsConsumer.class);
 
     @KafkaListener(topics = "${spring.kafka.consumer.topic}", groupId = "${spring.kafka.consumer.group-id}")
     //-- It's not working in native mode the @Header annotation to get the metadata
