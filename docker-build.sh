@@ -14,12 +14,8 @@ then
   echo "STRING-PRODUCER-SERVICE"
   echo "-----------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects string-de-serialization/string-producer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects string-de-serialization/string-producer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects string-de-serialization/string-producer-service
+
 fi
 
 if [ "$1" = "string-consumer-service" ] ||
@@ -32,12 +28,8 @@ then
   echo "STRING-CONSUMER-SERVICE"
   echo "-----------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects string-de-serialization/string-consumer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects string-de-serialization/string-consumer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects string-de-serialization/string-consumer-service
+
 fi
 
 if [ "$1" = "json-producer-service" ] ||
@@ -50,12 +42,8 @@ then
   echo "JSON-PRODUCER-SERVICE"
   echo "---------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects json-de-serialization/json-producer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects json-de-serialization/json-producer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects json-de-serialization/json-producer-service
+
 fi
 
 if [ "$1" = "json-consumer-service" ] ||
@@ -68,12 +56,8 @@ then
   echo "JSON-CONSUMER-SERVICE"
   echo "---------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects json-de-serialization/json-consumer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects json-de-serialization/json-consumer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects json-de-serialization/json-consumer-service
+
 fi
 
 if [ "$1" = "avro-producer-service" ] ||
@@ -86,12 +70,8 @@ then
   echo "AVRO-PRODUCER-SERVICE"
   echo "---------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects avro-de-serialization/avro-producer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects avro-de-serialization/avro-producer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects avro-de-serialization/avro-producer-service
+
 fi
 
 if [ "$1" = "avro-consumer-service" ] ||
@@ -104,12 +84,8 @@ then
   echo "AVRO-CONSUMER-SERVICE"
   echo "---------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects avro-de-serialization/avro-consumer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects avro-de-serialization/avro-consumer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects avro-de-serialization/avro-consumer-service
+
 fi
 
 if [ "$1" = "avro-2-producer-service" ] ||
@@ -122,12 +98,8 @@ then
   echo "AVRO-2-PRODUCER-SERVICE"
   echo "-----------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects avro-2-de-serialization/avro-2-producer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects avro-2-de-serialization/avro-2-producer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects avro-2-de-serialization/avro-2-producer-service
+
 fi
 
 if [ "$1" = "avro-2-consumer-service" ] ||
@@ -140,12 +112,8 @@ then
   echo "AVRO-2-CONSUMER-SERVICE"
   echo "-----------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects avro-2-de-serialization/avro-2-consumer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects avro-2-de-serialization/avro-2-consumer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects avro-2-de-serialization/avro-2-consumer-service
+
 fi
 
 if [ "$1" = "avro-3-producer-service" ] ||
@@ -158,12 +126,8 @@ then
   echo "AVRO-3-PRODUCER-SERVICE"
   echo "-----------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects avro-3-de-serialization/avro-3-producer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects avro-3-de-serialization/avro-3-producer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects avro-3-de-serialization/avro-3-producer-service
+
 fi
 
 if [ "$1" = "avro-3-consumer-service" ] ||
@@ -176,10 +140,6 @@ then
   echo "AVRO-3-CONSUMER-SERVICE"
   echo "-----------------------"
 
-  if [ "$2" = "native" ];
-  then
-    ./mvnw clean spring-boot:build-image --projects avro-3-de-serialization/avro-3-consumer-service -DskipTests
-  else
-    ./mvnw clean compile jib:dockerBuild --projects avro-3-de-serialization/avro-3-consumer-service
-  fi
+  ./mvnw clean compile jib:dockerBuild --projects avro-3-de-serialization/avro-3-consumer-service
+
 fi

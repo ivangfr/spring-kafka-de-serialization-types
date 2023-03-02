@@ -1,10 +1,12 @@
 # spring-kafka-de-serialization-types
 ## `> string-de-serialization`
 
+![string-de-serialization](../documentation/string-de-serialization.png)
+
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`
-- Producer serializes the message `key` and `value` using `StringSerializer`;
-- Consumer deserializes the message `key` and `value` using `StringDeserializer`;
-- Producer creates the Kafka topics and Consumer doesn't.
+- **Producer** serializes the message `key` and `value` using `StringSerializer`;
+- **Consumer** deserializes the message `key` and `value` using `StringDeserializer`;
+- **Producer** creates the Kafka topics and **Consumer** doesn't.
 
 ## Start Environment
 
@@ -16,12 +18,12 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - **string-producer-service**
 
-  - Open a terminal navigate to `spring-kafka-de-serialization-types` root folder
+  - Open a terminal and navigate to `spring-kafka-de-serialization-types` root folder
   - Run application
     ```
     ./mvnw clean spring-boot:run --projects string-de-serialization/string-producer-service
     ```
-  - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `string-de-serialization-news`. The default `delay` between messages is `3 seconds`.
+  - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `string-de-serialization-news`. The default `interval` between messages is `3 seconds`.
 
 - **string-consumer-service**
 
@@ -36,16 +38,10 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - ### Build Docker images
   
-  - Open a terminal navigate to `spring-kafka-de-serialization-types` root folder
-  - Run the following script to build the images
-    - JVM
-      ```
-      ./docker-build.sh string-de-serialization
-      ```
-    - Native
-      ```
-      ./docker-build.sh string-de-serialization native
-      ```
+  In a terminal and, inside `spring-kafka-de-serialization-types` root folder, run
+  ```
+  ./docker-build.sh string-de-serialization
+  ```
 
 - ### Environment variables
 

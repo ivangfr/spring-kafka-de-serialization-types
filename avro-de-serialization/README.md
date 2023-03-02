@@ -1,11 +1,13 @@
 # spring-kafka-de-serialization-types
 ## `> avro-de-serialization`
 
+![avro-de-serialization](../documentation/avro-de-serialization.png)
+
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`
-- Producer serializes the message `key` using `StringSerializer` and the message `value` using `AvroSerializer`;
-- Consumer deserializes the message `key` using `StringDeserializer` and the message `value` using `AvroDeserializer`;
+- **Producer** serializes the message `key` using `StringSerializer` and the message `value` using `AvroSerializer`;
+- **Consumer** deserializes the message `key` using `StringDeserializer` and the message `value` using `AvroDeserializer`;
 - We needed to implement `AvroSerializer` and `AvroDeserializer` classes;
-- Producer creates the Kafka topics and Consumer doesn't.
+- **Producer** creates the Kafka topics and **Consumer** doesn't.
 
 ## Start Environment
 
@@ -17,7 +19,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - **avro-producer-service**
 
-  - Open a terminal navigate to `spring-kafka-de-serialization-types` root folder
+  - Open a terminal and navigate to `spring-kafka-de-serialization-types` root folder
   - Run application
     ```
     ./mvnw clean spring-boot:run --projects avro-de-serialization/avro-producer-service
@@ -26,7 +28,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
     > ```
     > ./mvnw generate-sources --projects avro-de-serialization/avro-producer-service
     > ```
-  - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `avro-de-serialization-news`. The default `delay` between messages is `3 seconds`.
+  - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `avro-de-serialization-news`. The default `interval` between messages is `3 seconds`.
 
 - **avro-consumer-service**
 
@@ -45,16 +47,10 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - ### Build Docker images
 
-  - Open a terminal navigate to `spring-kafka-de-serialization-types` root folder
-  - Run the following script to build the images
-    - JVM
-      ```
-      ./docker-build.sh avro-de-serialization
-      ```
-    - Native
-      ```
-      ./docker-build.sh avro-de-serialization native
-      ```
+  In a terminal and, inside `spring-kafka-de-serialization-types` root folder, run
+  ```
+  ./docker-build.sh avro-de-serialization
+  ```
 
 - ### Environment variables
 

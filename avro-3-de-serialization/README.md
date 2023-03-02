@@ -1,13 +1,15 @@
 # spring-kafka-de-serialization-types
 ## `> avro-3-de-serialization`
 
+![avro-3-de-serialization](../documentation/avro-3-de-serialization.png)
+
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`
-- Producer serializes the message `key` using `StringSerializer` and the message `value` using `KafkaAvroSerializer`;
-- Consumer deserializes message `key` using `StringSerializer` to the message `value` using `SpecificAvroWithSchemaDeserializer`;
+- **Producer** serializes the message `key` using `StringSerializer` and the message `value` using `KafkaAvroSerializer`;
+- **Consumer** deserializes message `key` using `StringSerializer` to the message `value` using `SpecificAvroWithSchemaDeserializer`;
 - This type of serialization/deserialization uses `Schema Registry`;
 - The Java class generated from the `Avro` schema **DOES NOT** need to have the same `name` and `package (or namespace)` in the producer and the consumer;
 - We needed to implement the `SpecificAvroWithSchemaDeserializer` class;
-- Producer creates the Kafka topics and Consumer doesn't.
+- **Producer** creates the Kafka topics and **Consumer** doesn't.
 
 ## Start Environment
 
@@ -19,7 +21,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - **avro-3-producer-service**
 
-  - Open a terminal navigate to `spring-kafka-de-serialization-types` root folder
+  - Open a terminal and navigate to `spring-kafka-de-serialization-types` root folder
   - Run application
     ```
     ./mvnw clean spring-boot:run --projects avro-3-de-serialization/avro-3-producer-service
@@ -28,7 +30,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
     > ```
     > ./mvnw generate-sources --projects avro-3-de-serialization/avro-3-producer-service
     > ```
-  - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `avro-3-de-serialization-news`. The default `delay` between messages is `3 seconds`.
+  - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `avro-3-de-serialization-news`. The default `interval` between messages is `3 seconds`.
 
 - **avro-3-consumer-service**
 
@@ -47,16 +49,10 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - ### Build Docker images
 
-  - Open a terminal navigate to `spring-kafka-de-serialization-types` root folder
-  - Run the following script to build the images
-    - JVM
-      ```
-      ./docker-build.sh avro-3-de-serialization
-      ```
-    - Native
-      ```
-      ./docker-build.sh avro-3-de-serialization native
-      ```
+  In a terminal and, inside `spring-kafka-de-serialization-types` root folder, run
+  ```
+  ./docker-build.sh avro-3-de-serialization
+  ```
 
 - ### Environment variables
 

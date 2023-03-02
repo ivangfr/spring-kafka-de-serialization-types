@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 @Component
 public class SimulationRunner implements CommandLineRunner {
 
@@ -16,14 +19,16 @@ public class SimulationRunner implements CommandLineRunner {
         this.randomNews = randomNews;
     }
 
-    @Value("${simulation.sleep}")
-    private Integer sleep;
+    @Value("${simulation.messages.interval}")
+    private Integer interval;
 
     @Override
-    public void run(String... args) throws InterruptedException {
-        while (true) {
-            newsProducer.send(randomNews.generate());
-            Thread.sleep(sleep);
-        }
+    public void run(String... args) {
+        Executors.newSingleThreadScheduledExecutor()
+                .scheduleAtFixedRate(this::generateAndSendNews, 0, interval, TimeUnit.MILLISECONDS);
+    }
+
+    private void generateAndSendNews() {
+        newsProducer.send(randomNews.generate());
     }
 }
