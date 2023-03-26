@@ -1,7 +1,7 @@
 # spring-kafka-de-serialization-types
 ## `> string-de-serialization`
 
-![string-de-serialization](../documentation/string-de-serialization.png)
+![string-de-serialization](../documentation/string-de-serialization.jpeg)
 
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`
 - **Producer** serializes the message `key` and `value` using `StringSerializer`;

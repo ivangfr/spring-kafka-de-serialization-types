@@ -1,7 +1,7 @@
 # spring-kafka-de-serialization-types
 ## `> avro-de-serialization`
 
-![avro-de-serialization](../documentation/avro-de-serialization.png)
+![avro-de-serialization](../documentation/avro-de-serialization.jpeg)
 
 This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`
 - **Producer** serializes the message `key` using `StringSerializer` and the message `value` using `AvroSerializer`;

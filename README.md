@@ -6,13 +6,13 @@ The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io
 
 The following examples demonstrate a **producer** that pushes _"News"_ messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`.
 
-| Example                                                                                                                                                            | Diagram                                                               |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| [string-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/string-de-serialization#spring-kafka-de-serialization-types)  | ![project-diagram-samples](documentation/string-de-serialization.png) |
-| [json-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/json-de-serialization#spring-kafka-de-serialization-types)      | ![project-diagram-samples](documentation/string-de-serialization.png) |
-| [avro-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-de-serialization#spring-kafka-de-serialization-types)      | ![project-diagram-samples](documentation/avro-de-serialization.png)   |
-| [avro-2-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-2-de-serialization#spring-kafka-de-serialization-types)  | ![project-diagram-samples](documentation/avro-2-de-serialization.png) |
-| [avro-3-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-3-de-serialization#spring-kafka-de-serialization-types)  | ![project-diagram-samples](documentation/avro-3-de-serialization.png) |
+| Example                                                                                                                                                            | Diagram                                                                |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| [string-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/string-de-serialization#spring-kafka-de-serialization-types)  | ![project-diagram-samples](documentation/string-de-serialization.jpeg) |
+| [json-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/json-de-serialization#spring-kafka-de-serialization-types)      | ![project-diagram-samples](documentation/string-de-serialization.jpeg) |
+| [avro-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-de-serialization#spring-kafka-de-serialization-types)      | ![project-diagram-samples](documentation/avro-de-serialization.jpeg)   |
+| [avro-2-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-2-de-serialization#spring-kafka-de-serialization-types)  | ![project-diagram-samples](documentation/avro-2-de-serialization.jpeg) |
+| [avro-3-de-serialization](https://github.com/ivangfr/spring-kafka-de-serialization-types/tree/master/avro-3-de-serialization#spring-kafka-de-serialization-types)  | ![project-diagram-samples](documentation/avro-3-de-serialization.jpeg) |
 
 ## Prerequisites
 
