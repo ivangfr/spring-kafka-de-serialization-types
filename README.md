@@ -22,18 +22,17 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 - [`Java 17+`](https://www.oracle.com/java/technologies/downloads/#java17)
 - [`Docker`](https://www.docker.com/)
-- [`Docker-Compose`](https://docs.docker.com/compose/install/)
 
 ## Start Environment
 
 - Open a terminal and inside `spring-kafka-de-serialization-types` root folder run
   ```
-  docker-compose up -d
+  docker compose up -d
   ```
 
 - Wait for Docker containers to be up and running. To check it, run
   ```
-  docker-compose ps
+  docker compose ps
   ```
 
 ## Useful Links
@@ -59,9 +58,9 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 ## Shutdown
 
-To stop and remove docker-compose containers, network and volumes, go to a terminal and, inside `spring-kafka-de-serialization-types` root folder, run the command below
+To stop and remove docker compose containers, network and volumes, go to a terminal and, inside `spring-kafka-de-serialization-types` root folder, run the command below
 ```
-docker-compose down -v
+docker compose down -v
 ```
 
 ## Cleanup
