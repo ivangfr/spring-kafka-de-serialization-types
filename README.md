@@ -2,6 +2,10 @@
 
 The goal of this project is to play with [`Spring Kafka`](https://docs.spring.io/spring-kafka/reference/html/). We've implemented 5 examples of `producer` and `consumer` services that exchanges messages through [`Kafka`](https://kafka.apache.org/) using different types of serialization and approaches.
 
+## Proof-of-Concepts & Articles
+
+On [ivangfr.github.io](https://ivangfr.github.io), I have compiled my Proof-of-Concepts (PoCs) and articles. You can easily search for the technology you are interested in by using the filter. Who knows, perhaps I have already implemented a PoC or written an article about what you are looking for.
+
 ## Examples
 
 The following examples demonstrate a **producer** that pushes _"News"_ messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`.
