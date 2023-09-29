@@ -15,7 +15,7 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <avro.version>1.11.2</avro.version>
+        <avro.version>1.11.3</avro.version>
         <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
     </properties>
 
