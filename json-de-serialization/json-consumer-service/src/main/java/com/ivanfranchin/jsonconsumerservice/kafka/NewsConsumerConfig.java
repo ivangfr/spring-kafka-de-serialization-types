@@ -34,7 +34,7 @@ public class NewsConsumerConfig {
 
     @Bean
     public ConsumerFactory<String, News> consumerFactory() {
-        Map<String, Object> props = kafkaProperties.buildConsumerProperties();
+        Map<String, Object> props = kafkaProperties.buildConsumerProperties(null);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         props.put(ConsumerConfig.ALLOW_AUTO_CREATE_TOPICS_CONFIG, false);

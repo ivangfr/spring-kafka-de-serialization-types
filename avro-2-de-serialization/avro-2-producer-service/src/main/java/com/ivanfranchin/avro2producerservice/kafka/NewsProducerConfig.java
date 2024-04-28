@@ -34,7 +34,7 @@ public class NewsProducerConfig {
 
     @Bean
     public ProducerFactory<String, NewsMessage> producerFactory() {
-        Map<String, Object> props = kafkaProperties.buildProducerProperties();
+        Map<String, Object> props = kafkaProperties.buildProducerProperties(null);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
         props.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, kafkaProperties.getProperties().get("schema-registry-url"));
