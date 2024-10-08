@@ -15,7 +15,7 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <avro.version>1.11.3</avro.version>
+        <avro.version>1.11.4</avro.version>
         <confluent-kafka-avro-serializer.version>7.5.3</confluent-kafka-avro-serializer.version>
     </properties>
 
