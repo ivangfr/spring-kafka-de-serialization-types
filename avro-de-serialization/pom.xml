@@ -6,24 +6,16 @@
         <groupId>com.ivanfranchin</groupId>
         <artifactId>spring-kafka-de-serialization-types</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-
     <artifactId>avro-de-serialization</artifactId>
     <packaging>pom</packaging>
     <name>avro-de-serialization</name>
     <description>Demo project for Spring Boot</description>
-
     <properties>
-        <avro.version>1.11.3</avro.version>
+        <avro.version>1.12.0</avro.version>
         <jakarta-xml-bind-api.version>4.0.0</jakarta-xml-bind-api.version>
     </properties>
-
-    <modules>
-        <module>avro-producer-service</module>
-        <module>avro-consumer-service</module>
-    </modules>
-
     <dependencies>
         <!-- Avro -->
         <dependency>
@@ -65,5 +57,10 @@
             </plugin>
         </plugins>
     </build>
+
+    <modules>
+        <module>avro-producer-service</module>
+        <module>avro-consumer-service</module>
+    </modules>
 
 </project>

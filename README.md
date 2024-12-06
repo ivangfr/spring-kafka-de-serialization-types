@@ -1,6 +1,6 @@
 # spring-kafka-de-serialization-types
 
-The goal of this project is to play with [`Spring for Apache Kafka`](https://spring.io/projects/spring-kafka). We've implemented 5 examples of `producer` and `consumer` services that exchanges messages through [`Kafka`](https://kafka.apache.org/) using different types of serialization and approaches.
+The goal of this project is to play with [`Spring for Apache Kafka`](https://docs.spring.io/spring-kafka/reference/index.html). We've implemented 5 examples of `producer` and `consumer` services that exchanges messages through [`Kafka`](https://kafka.apache.org/) using different types of serialization and approaches.
 
 ## Proof-of-Concepts & Articles
 
@@ -20,12 +20,12 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 ## Prerequisites
 
-- [`Java 17+`](https://www.oracle.com/java/technologies/downloads/#java17)
-- [`Docker`](https://www.docker.com/)
+- [`Java 21+`](https://www.oracle.com/java/technologies/downloads/#java21)
+- Some containerization tool [`Docker`](https://www.docker.com), [`Podman`](https://podman.io), etc.
 
 ## Start Environment
 
-- Open a terminal and inside `spring-kafka-de-serialization-types` root folder run:
+- Open a terminal and inside the `spring-kafka-de-serialization-types` root folder run:
   ```
   docker compose up -d
   ```
@@ -58,14 +58,14 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 ## Shutdown
 
-To stop and remove docker compose containers, network and volumes, go to a terminal and, inside `spring-kafka-de-serialization-types` root folder, run the command below:
+To stop and remove docker compose containers, network and volumes, go to a terminal and, inside the `spring-kafka-de-serialization-types` root folder, run the command below:
 ```
 docker compose down -v
 ```
 
 ## Cleanup
 
-To remove the Docker created by this project, go to a terminal and, inside `spring-kafka-de-serialization-types` root folder, run the following script:
+To remove the Docker created by this project, go to a terminal and, inside the `spring-kafka-de-serialization-types` root folder, run the following script:
 ```
 ./remove-docker-images.sh all
 ```

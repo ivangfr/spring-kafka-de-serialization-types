@@ -6,18 +6,12 @@
         <groupId>com.ivanfranchin</groupId>
         <artifactId>spring-kafka-de-serialization-types</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-
     <artifactId>string-de-serialization</artifactId>
     <packaging>pom</packaging>
     <name>string-de-serialization</name>
     <description>Demo project for Spring Boot</description>
-
-    <modules>
-        <module>string-producer-service</module>
-        <module>string-consumer-service</module>
-    </modules>
 
     <build>
         <plugins>
@@ -27,5 +21,10 @@
             </plugin>
         </plugins>
     </build>
+
+    <modules>
+        <module>string-producer-service</module>
+        <module>string-consumer-service</module>
+    </modules>
 
 </project>

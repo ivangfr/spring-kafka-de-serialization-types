@@ -6,24 +6,16 @@
         <groupId>com.ivanfranchin</groupId>
         <artifactId>spring-kafka-de-serialization-types</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-
     <artifactId>avro-3-de-serialization</artifactId>
     <packaging>pom</packaging>
     <name>avro-3-de-serialization</name>
     <description>Demo project for Spring Boot</description>
-
     <properties>
-        <avro.version>1.11.3</avro.version>
-        <confluent-kafka-avro-serializer.version>7.5.3</confluent-kafka-avro-serializer.version>
+        <avro.version>1.12.0</avro.version>
+        <confluent-kafka-avro-serializer.version>7.8.0</confluent-kafka-avro-serializer.version>
     </properties>
-
-    <modules>
-        <module>avro-3-producer-service</module>
-        <module>avro-3-consumer-service</module>
-    </modules>
-
     <dependencies>
         <!-- Avro -->
         <dependency>
@@ -72,5 +64,10 @@
             <url>https://packages.confluent.io/maven/</url>
         </repository>
     </repositories>
+
+    <modules>
+        <module>avro-3-producer-service</module>
+        <module>avro-3-consumer-service</module>
+    </modules>
 
 </project>

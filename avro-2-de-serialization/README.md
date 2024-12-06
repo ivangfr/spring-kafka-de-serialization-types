@@ -20,7 +20,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - **avro-2-producer-service**
 
-  - Open a terminal and navigate to `spring-kafka-de-serialization-types` root folder;
+  - Open a terminal and navigate to the `spring-kafka-de-serialization-types` root folder;
   - Run application:
     ```
     ./mvnw clean spring-boot:run --projects avro-2-de-serialization/avro-2-producer-service
@@ -48,7 +48,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - ### Build Docker images
 
-  In a terminal and, inside `spring-kafka-de-serialization-types` root folder, run:
+  In a terminal and, inside the `spring-kafka-de-serialization-types` root folder, run:
   ```
   ./docker-build.sh avro-2-de-serialization
   ```
@@ -95,7 +95,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 ## Cleanup
 
-To remove the Docker images created by this example, go to a terminal and, inside `spring-kafka-de-serialization-types` root folder, run the following script:
+To remove the Docker images created by this example, go to a terminal and, inside the `spring-kafka-de-serialization-types` root folder, run the following script:
 ```
 ./remove-docker-images.sh avro-2-de-serialization
 ```

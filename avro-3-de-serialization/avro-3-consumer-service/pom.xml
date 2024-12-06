@@ -6,13 +6,11 @@
         <groupId>com.ivanfranchin</groupId>
         <artifactId>avro-3-de-serialization</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-
     <artifactId>avro-3-consumer-service</artifactId>
     <name>avro-3-consumer-service</name>
     <description>Demo project for Spring Boot</description>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

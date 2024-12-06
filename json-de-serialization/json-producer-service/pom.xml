@@ -6,13 +6,11 @@
         <groupId>com.ivanfranchin</groupId>
         <artifactId>json-de-serialization</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-
     <artifactId>json-producer-service</artifactId>
     <name>json-producer-service</name>
     <description>Demo project for Spring Boot</description>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
