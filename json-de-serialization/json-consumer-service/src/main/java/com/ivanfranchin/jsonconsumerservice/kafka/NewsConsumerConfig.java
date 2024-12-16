@@ -25,7 +25,7 @@ public class NewsConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, News> kafkaListenerContainerFactory() {
+    ConcurrentKafkaListenerContainerFactory<String, News> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, News> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.setConcurrency(kafkaProperties.getListener().getConcurrency());
@@ -33,7 +33,7 @@ public class NewsConsumerConfig {
     }
 
     @Bean
-    public ConsumerFactory<String, News> consumerFactory() {
+    ConsumerFactory<String, News> consumerFactory() {
         Map<String, Object> props = kafkaProperties.buildConsumerProperties(null);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

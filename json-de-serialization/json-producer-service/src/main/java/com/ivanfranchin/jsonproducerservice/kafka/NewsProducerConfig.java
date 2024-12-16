@@ -27,12 +27,12 @@ public class NewsProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, News> kafkaTemplate() {
+    KafkaTemplate<String, News> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 
     @Bean
-    public ProducerFactory<String, News> producerFactory() {
+    ProducerFactory<String, News> producerFactory() {
         Map<String, Object> props = kafkaProperties.buildProducerProperties(null);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
@@ -43,14 +43,14 @@ public class NewsProducerConfig {
     // As the application will create a topic in Kafka, it is better to update the KafkaAdmin's BOOTSTRAP_SERVERS_CONFIG
     // property with the bootstrap servers' url configured, otherwise it will get the default 'localhost:9082'
     @Bean
-    public KafkaAdmin kafkaAdmin() {
+    KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());
         return new KafkaAdmin(configs);
     }
 
     @Bean
-    public NewTopic newTopic() {
+    NewTopic newTopic() {
         Map<String, String> producerProperties = kafkaProperties.getProducer().getProperties();
         return new NewTopic(producerProperties.get("topic"), Integer.parseInt(producerProperties.get("num-partitions")), (short) 1);
     }

@@ -32,7 +32,7 @@ The following examples demonstrate a **producer** that pushes _"News"_ messages 
 
 - Wait for Docker containers to be up and running. To check it, run:
   ```
-  docker compose ps
+  docker ps -a
   ```
 
 ## Useful Links

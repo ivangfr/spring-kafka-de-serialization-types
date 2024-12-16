@@ -40,7 +40,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
   In a terminal and, inside the `spring-kafka-de-serialization-types` root folder, run:
   ```
-  ./docker-build.sh json-de-serialization
+  ./build-docker-images.sh json-de-serialization
   ```
 
 - ### Environment variables
