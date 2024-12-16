@@ -1,12 +1,12 @@
 package com.ivanfranchin.avroproducerservice.simulation;
 
 import com.ivanfranchin.avroproducerservice.avro.NewsMessage;
-import com.ivanfranchin.avroproducerservice.news.NewsEmitter;
 import com.ivanfranchin.avroproducerservice.news.News;
-import org.springframework.beans.factory.annotation.Value;
+import com.ivanfranchin.avroproducerservice.news.NewsEmitter;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -14,27 +14,26 @@ import java.util.concurrent.TimeUnit;
 public class SimulationRunner implements CommandLineRunner {
 
     private final NewsEmitter newsEmitter;
-    private final RandomNews randomNews;
 
-    public SimulationRunner(NewsEmitter newsEmitter, RandomNews randomNews) {
+    public SimulationRunner(NewsEmitter newsEmitter) {
         this.newsEmitter = newsEmitter;
-        this.randomNews = randomNews;
     }
-
-    @Value("${simulation.messages.interval}")
-    private Integer interval;
 
     @Override
     public void run(String... args) {
         Executors.newSingleThreadScheduledExecutor()
-                .scheduleAtFixedRate(this::generateAndSendNews, 0, interval, TimeUnit.MILLISECONDS);
+                .scheduleAtFixedRate(this::generateAndSendNews, 0, 3, TimeUnit.SECONDS);
     }
 
     private void generateAndSendNews() {
-        newsEmitter.send(toNewsMessage(randomNews.generate()));
+        newsEmitter.send(toNewsMessage(generate()));
     }
 
     private NewsMessage toNewsMessage(News news) {
         return new NewsMessage(news.id(), news.fromId(), news.fromName(), news.title());
+    }
+
+    private News generate() {
+        return new News(UUID.randomUUID().toString(), 1, "Channel", "Title");
     }
 }
