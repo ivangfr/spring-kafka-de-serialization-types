@@ -23,6 +23,6 @@ public class NewsEmitter {
     public void send(NewsMessage newsMessage) {
         String kafkaTopic = kafkaProperties.getProducer().getProperties().get("topic");
         log.info("Sending News '{}' to topic '{}'", newsMessage, kafkaTopic);
-        kafkaTemplate.send(kafkaTopic, String.valueOf(newsMessage.getFromId()), newsMessage);
+        kafkaTemplate.send(kafkaTopic, newsMessage.getId().toString(), newsMessage);
     }
 }
