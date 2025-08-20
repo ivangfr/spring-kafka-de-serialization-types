@@ -3,9 +3,9 @@
 
 ![string-de-serialization](../documentation/string-de-serialization.jpeg)
 
-This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that listens those messages from `Kafka`:
-- **Producer** serializes the message `key` and `value` using `StringSerializer`;
-- **Consumer** deserializes the message `key` and `value` using `StringDeserializer`;
+This sample demonstrates a **producer** that pushes `News` messages to a topic in `Kafka` and a **consumer** that listens to those messages from `Kafka`:
+- **Producer** serializes the message `key` and `value` using `StringSerializer`.
+- **Consumer** deserializes the message `key` and `value` using `StringDeserializer`.
 - **Producer** creates the Kafka topics and **Consumer** doesn't.
 
 ## Start Environment
@@ -18,18 +18,18 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 - **string-producer-service**
 
-  - Open a terminal and navigate to the `spring-kafka-de-serialization-types` root folder;
+  - Open a terminal and navigate to the `spring-kafka-de-serialization-types` root folder.
   - Run application:
-    ```
+    ```bash
     ./mvnw clean spring-boot:run --projects string-de-serialization/string-producer-service
     ```
   - As soon as the producer is up and running, it will start pushing automatically and randomly `News` messages to `Kafka` topic `string-de-serialization-news`. The default `interval` between messages is `3 seconds`.
 
 - **string-consumer-service**
 
-  - Open another terminal and make sure you are in `spring-kafka-de-serialization-types` root folder;
+  - Open another terminal and make sure you are in `spring-kafka-de-serialization-types` root folder.
   - Run application:
-    ```
+    ```bash
     ./mvnw clean spring-boot:run --projects string-de-serialization/string-consumer-service
     ```
   - Once the consumer is up and running, it will start listening `News` messages from the `Kafka` topic `string-de-serialization-news`.
@@ -39,7 +39,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
 - ### Build Docker images
   
   In a terminal and, inside the `spring-kafka-de-serialization-types` root folder, run:
-  ```
+  ```bash
   ./build-docker-images.sh string-de-serialization
   ```
 
@@ -59,7 +59,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
   - **string-producer-service**
     
     In a terminal, run the following Docker command:
-    ```
+    ```bash
     docker run --rm --name string-producer-service -p 9080:9080 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
       --network=spring-kafka-de-serialization-types_default \
@@ -69,7 +69,7 @@ Before starting producer and consumer, the services present in `docker-compose.y
   - **string-consumer-service**
     
     In another terminal, run the Docker command below:
-    ```
+    ```bash
     docker run --rm --name string-consumer-service -p 9081:9081 \
       -e KAFKA_HOST=kafka -e KAFKA_PORT=9092 \
       --network=spring-kafka-de-serialization-types_default \
@@ -78,12 +78,12 @@ Before starting producer and consumer, the services present in `docker-compose.y
 
 ## Shutdown
 
-- Go to the terminals where the applications are running and press `Ctrl+C`;
+- Go to the terminals where the applications are running and press `Ctrl+C`.
 - Stop the services present in `docker-compose.yml` as explained in [Shutdown](https://github.com/ivangfr/spring-kafka-de-serialization-types#shutdown) section of the main README.
 
 ## Cleanup
 
 To remove the Docker images created by this example, go to a terminal and, inside the `spring-kafka-de-serialization-types` root folder, run the following script:
-```
+```bash
 ./remove-docker-images.sh string-de-serialization
 ```
