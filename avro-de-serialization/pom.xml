@@ -12,9 +12,22 @@
     <packaging>pom</packaging>
     <name>avro-de-serialization</name>
     <description>Demo project for Spring Boot</description>
+    <url/>
+    <licenses>
+        <license/>
+    </licenses>
+    <developers>
+        <developer/>
+    </developers>
+    <scm>
+        <connection/>
+        <developerConnection/>
+        <tag/>
+        <url/>
+    </scm>
     <properties>
-        <avro.version>1.12.0</avro.version>
-        <jakarta-xml-bind-api.version>4.0.2</jakarta-xml-bind-api.version>
+        <avro.version>1.12.1</avro.version>
+        <jakarta-xml-bind-api.version>4.0.4</jakarta-xml-bind-api.version>
     </properties>
     <dependencies>
         <!-- Avro -->
@@ -34,10 +47,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.apache.avro</groupId>
                 <artifactId>avro-maven-plugin</artifactId>

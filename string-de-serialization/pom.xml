@@ -12,19 +12,21 @@
     <packaging>pom</packaging>
     <name>string-de-serialization</name>
     <description>Demo project for Spring Boot</description>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
+    <url/>
+    <licenses>
+        <license/>
+    </licenses>
+    <developers>
+        <developer/>
+    </developers>
+    <scm>
+        <connection/>
+        <developerConnection/>
+        <tag/>
+        <url/>
+    </scm>
     <modules>
         <module>string-producer-service</module>
         <module>string-consumer-service</module>
     </modules>
-
 </project>

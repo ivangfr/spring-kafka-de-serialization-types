@@ -52,10 +52,10 @@ then
   echo "STRING-PRODUCER-SERVICE"
   echo "-----------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$STRING_PRODUCER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$STRING_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$STRING_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
 
@@ -69,10 +69,10 @@ then
   echo "STRING-CONSUMER-SERVICE"
   echo "-----------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$STRING_CONSUMER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$STRING_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$STRING_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
 
@@ -86,10 +86,10 @@ then
   echo "JSON-PRODUCER-SERVICE"
   echo "---------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$JSON_PRODUCER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$JSON_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$JSON_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
 
@@ -103,10 +103,10 @@ then
   echo "JSON-CONSUMER-SERVICE"
   echo "---------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$JSON_CONSUMER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$JSON_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$JSON_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
 
@@ -120,10 +120,10 @@ then
   echo "AVRO-PRODUCER-SERVICE"
   echo "---------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$AVRO_PRODUCER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$AVRO_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$AVRO_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
 
@@ -137,10 +137,10 @@ then
   echo "AVRO-CONSUMER-SERVICE"
   echo "---------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$AVRO_CONSUMER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$AVRO_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$AVRO_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
 
@@ -154,10 +154,10 @@ then
   echo "AVRO-2-PRODUCER-SERVICE"
   echo "-----------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$AVRO_2_PRODUCER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$AVRO_2_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$AVRO_2_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
 
@@ -171,10 +171,10 @@ then
   echo "AVRO-2-CONSUMER-SERVICE"
   echo "-----------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$AVRO_2_CONSUMER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$AVRO_2_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$AVRO_2_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
 
@@ -188,10 +188,10 @@ then
   echo "AVRO-3-PRODUCER-SERVICE"
   echo "-----------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$AVRO_3_PRODUCER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$AVRO_3_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$AVRO_3_PRODUCER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
 
@@ -205,9 +205,9 @@ then
   echo "AVRO-3-CONSUMER-SERVICE"
   echo "-----------------------"
 
-  ./mvnw clean compile jib:dockerBuild \
+  ./mvnw clean spring-boot:build-image \
     --projects "$AVRO_3_CONSUMER_SERVICE_PROJECT_NAME" \
     -DskipTests="$SKIP_TESTS" \
-    -Dimage="$AVRO_3_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
+    -Dspring-boot.build-image.imageName="$AVRO_3_CONSUMER_SERVICE_DOCKER_IMAGE_NAME"
 
 fi
